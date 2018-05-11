@@ -1,0 +1,94 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+
+
+/* Typography */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    color: #000;
+    line-height: 1.05em;
+    font-weight: bold;
+}
+h1,
+.h1 {
+    font-size: 27px;
+}
+
+h2,
+.h2 {
+    font-size: 22px;
+}
+h3,
+.h3 {
+    font-size: 20px;
+}
+h4,
+.h4 {
+    font-size: 18px;
+}
+h5,
+.h5 {
+    font-size: 16px;
+}
+h6,
+.h6 {
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+//default margins
+h1,
+.h1,
+h2,
+.h2 {
+    margin: 25px 0 15px 0;
+}
+h3,
+.h3,
+h4,
+.h4 {
+    margin: 20px 0 15px 0;
+}
+h5,
+.h5,
+h6,
+.h6 {
+    margin: 15px 0 10px 0;
+}
+
+
+
+/* Global Style Stuff */
+.center {
+    text-align: center;
+}
+
+.btn, .btn-large {
+    background-color: #d15d1e;
+}
+
+.btn a, .btn-large a {
+    color:#fff;
+} 
+
+.btn:hover, .btn-large:hover {
+    background-color: #ef7430;
+}
+
+.btn-wrap {
+    margin: 20px 0;
+}
