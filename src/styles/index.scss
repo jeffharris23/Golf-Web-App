@@ -1,9 +1,15 @@
 // Make sure the charset is set appropriately
 @charset "UTF-8";
 
+
+//core
 @import "core/normalize";
 @import "core/variables";
 @import "core/base";
 @import "core/typography";
 @import "core/global-classes";
 @import "core/spacing";
+@import "core/forms";
+
+//layout
+@import "layout/layout";

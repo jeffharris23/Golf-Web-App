@@ -117,6 +117,12 @@
 .btn-wrap {
 	margin: 20px 0;
 
+	&.stacked {
+		div:first-child {
+			margin-bottom:10px;
+		}
+	}
+
 	&.nmb {
 		margin-bottom: 0;
 	}

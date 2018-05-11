@@ -479,11 +479,10 @@ p {
     line-height: 1.4em; }
 
 a {
-  color: #53B3CB;
+  color: #F22B29;
   text-decoration: none; }
   a:hover {
-    text-decoration: underline;
-    color: #67c7df; }
+    color: #ff3f3d; }
 
 .super {
   font-size: 40px; }
@@ -578,17 +577,17 @@ Tablet +
     box-shadow: none; }
     .btn.btn-outline-white:hover {
       background-color: #fff;
-      color: #53B3CB; }
+      color: #F22B29; }
   .btn.btn-stripped {
     border: none;
     padding: 3px 15px 3px 5px;
     background-color: transparent;
-    color: #53B3CB;
+    color: #F22B29;
     box-shadow: none;
     font-weight: normal;
     position: relative; }
     .btn.btn-stripped:hover {
-      color: #53B3CB;
+      color: #F22B29;
       text-decoration: underline;
       background-color: transparent;
       box-shadow: none; }
@@ -735,6 +734,8 @@ Tablet +
 
 .btn-wrap {
   margin: 20px 0; }
+  .btn-wrap.stacked div:first-child {
+    margin-bottom: 10px; }
   .btn-wrap.nmb {
     margin-bottom: 0; }
   .btn-wrap.nmt {
@@ -804,3 +805,10 @@ Widescreen
 
 .wrapper .nmr {
   margin-right: 0; }
+
+input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=url]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=date]:focus:not([readonly]), input[type=datetime]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+  border-color: #F9C22E;
+  box-shadow: 0 1px 0 0 #F9C22E; }
+
+.page {
+  padding-top: 60px; }
