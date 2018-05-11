@@ -30,7 +30,7 @@ class Header extends React.Component {
                     <img src="/images/logo.svg" alt="Logo"/>
                 </NavLink>
                     <SideNav
-                        trigger={<Button flat waves='light' icon='menu' />}
+                        trigger={<Button flat floating waves='light' icon='menu' />}
                         options={{ closeOnClick: true }}
                         >
                         <SideNavItem userView

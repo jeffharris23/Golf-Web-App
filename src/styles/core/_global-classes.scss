@@ -1,0 +1,194 @@
+
+
+.img-cover {
+	background-size: cover;
+	background-position: center center;
+}
+
+.full-width-img {
+	img {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+}
+
+.btn {
+	@include btn($primary);
+
+	&.btn-flat {
+		box-shadow: none;
+	}
+
+	&.btn-floating {
+		min-width: 0;
+		padding:0;
+	}
+
+	&.btn-outline-white {
+		@include btn-outline-white;
+	}
+
+	&.btn-stripped {
+		@include btn-stripped;
+	}
+
+	&.btn-yellow {
+		@include btn($secondary);
+	}
+
+	&.btn-blue {
+		@include btn($third);
+	}
+
+	&.btn-white {
+		@include btn(#fff);
+	}
+
+	&.disabled,
+	&[disabled],
+	&[disabled="disabled"],
+	&[disabled="disabled"],
+	&[disabled="disabled"] {
+		@include btnDisabled;
+	}
+}
+
+.bounce-anim {
+	transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+	&:hover {
+		transform: scale(1.1);
+	}
+}
+
+.pill {
+	display: inline-block;
+	font-size: 18px;
+	background-color: $grey-2;
+	color: #fff;
+	padding: 5px 15px;
+	margin: 5px;
+	transition: 0.3s;
+
+	&:hover {
+		background-color: $third;
+		color: #fff;
+		text-decoration: none;
+	}
+}
+
+
+.center {
+	text-align: center;
+}
+
+.text-left {
+	text-align: left;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.max-width {
+	max-width: $contentMaxWidth;
+	margin-left: auto;
+	margin-right: auto;
+}
+.max-width-smaller {
+	max-width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.normal-weight {
+	font-weight: normal;
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+.lowercase {
+	text-transform: lowercase;
+}
+
+.btn-wrap {
+	margin: 20px 0;
+
+	&.nmb {
+		margin-bottom: 0;
+	}
+
+	&.nmt {
+		margin-top: 0;
+	}
+
+	&.center {
+		text-align: center;
+	}
+
+	&.right {
+		text-align: right;
+	}
+
+	&.left {
+		text-align: left;
+	}
+}
+
+.italic {
+	font-style: italic;
+}
+
+.img-wrap {
+	img {
+		width: 100%;
+		display: block;
+	}
+}
+
+.padding-bottom {
+	padding-bottom: 50px;
+}
+.padding-top {
+	padding-top: 50px;
+}
+.padding-bottom-sm {
+	padding-bottom: 30px;
+}
+.padding-top-sm {
+	padding-bottom: 30px;
+}
+
+
+
+
+/* =============================================================================
+Phone +
+========================================================================== */
+@include mq(phone) {
+}
+
+/* =============================================================================
+Tablet +
+========================================================================== */
+@include mq(tablet) {
+	.min-height-page {
+		min-height: 500px;
+	}
+}
+
+/* =============================================================================
+Desktop
+========================================================================== */
+@include mq(desktop) {
+}
+
+/* =============================================================================
+Widescreen
+========================================================================== */
+@include mq(widescreen) {
+}
+

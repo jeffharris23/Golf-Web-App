@@ -1,0 +1,14 @@
+body {
+	@include pFont;
+	font-size: 100%;
+	color: $pColor;
+
+	@include mqMax(desktop) {
+		.touch & {
+			&.open-nav {
+				height: 100%;
+				overflow: hidden;
+			}
+		}
+	}
+}

@@ -1,0 +1,187 @@
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+	@include hFont;
+	color: $hColor;
+	line-height: 1.05em;
+
+}
+h1,
+.h1 {
+	font-size: 27px;
+}
+
+h2,
+.h2 {
+	font-size: 22px;
+}
+h3,
+.h3 {
+	font-size: 20px;
+}
+h4,
+.h4 {
+	font-size: 18px;
+}
+h5,
+.h5 {
+	font-size: 16px;
+}
+h6,
+.h6 {
+	font-size: 14px;
+	text-transform: uppercase;
+}
+
+//default margins
+h1,
+.h1,
+h2,
+.h2 {
+	margin: 25px 0 15px 0;
+}
+h3,
+.h3,
+h4,
+.h4 {
+	margin: 20px 0 15px 0;
+}
+h5,
+.h5,
+h6,
+.h6 {
+	margin: 15px 0 10px 0;
+}
+
+//style colors of headers on inner pages
+.inner-page {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	.h1,
+	.h2,
+	.h3,
+	.h4,
+	.h5 {
+		color: $third;
+	}
+}
+
+.no-margin-top-container {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p {
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+}
+
+ul {
+	&.no-bullets {
+		list-style: none;
+	}
+}
+p,
+li {
+	font-size: 16px;
+	@include pFont;
+	line-height: 1.4em;
+
+}
+p {
+	margin: 0 0 1em;
+	&.regular {
+		@include regularP;
+	}
+}
+a {
+	color: $aColor;
+	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+		color: $aColor + 20;
+	}
+}
+
+.super {
+	font-size: 40px;
+}
+
+ol,
+ul {
+	padding-left: 20px;
+	margin: 0 0 1em;
+}
+
+/* =============================================================================
+Tablet +
+========================================================================== */
+@include mq(tablet) {
+	h1,
+	.h1 {
+		font-size: 36px;
+	}
+	h2,
+	.h2 {
+		font-size: 28px;
+	}
+	h3,
+	.h3 {
+		font-size: 24px;
+	}
+	h4,
+	.h4 {
+		font-size: 20px;
+	}
+	h5,
+	.h5 {
+		font-size: 18px;
+	}
+	h6,
+	.h6 {
+		font-size: 14px;
+	}
+
+	p {
+		&.largest {
+			@include largestP;
+		}
+		&.largest-bold {
+			@include largestBold;
+		}
+		&.larger {
+			@include largerP;
+		}
+		&.smaller {
+			@include smallerP;
+		}
+	}
+
+	.super {
+		font-size: 54px;
+	}
+}
+
+/* =============================================================================
+Tablet +
+========================================================================== */
+@include mq(desktop) {
+}
+

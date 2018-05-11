@@ -1,0 +1,285 @@
+/* =============================================================================
+   Main Site Variables
+   ========================================================================== */
+
+/* Site Vars */
+$font-family:'Open Sans', sans-serif;
+//Orange
+$primary: #F22B29;
+//Yellow
+$secondary: #F9C22E;
+//Light Blue
+$third: #53B3CB;
+//dark black/purple
+$fourth: #0C090D;
+
+$pColor: $fourth;
+$hColor: $fourth;
+
+
+$aColor: $third;
+
+$grey-1: #ececec;
+$grey-2: #8e8e8e;
+$grey-3: #333333;
+$off-white: #f8f8f8;
+$off-black: #0f0f0f;
+
+$fixed-header: 55px;
+$navHeightDesktop: 125px;
+$alertHeight: 40px;
+$flashDefault: $grey-2;
+$success: #b3ff85;
+$warning: #ede392;
+$error: #e00000;
+$customInputColor: $primary;
+$em-base: 16px;
+
+$headerShadow: 0 2px 5px rgba(black, 0.15);
+
+$contentMaxWidth: 800px;
+
+
+@mixin hFont {
+  font-family: $font-family;
+  font-weight: 700;
+}
+
+@mixin pFont {
+  font-family: $font-family;
+  font-weight: normal;
+}
+
+@mixin largestBold {
+  font-size: 20px;
+  font-weight: 700;
+}
+@mixin largestP {
+  font-size: 20px;
+}
+@mixin largerP {
+  font-size: 18px;
+}
+@mixin smallerP {
+  font-size: 14px;
+}
+
+@mixin regularP {
+  font-size: 16px;
+  line-height: 1.4em;
+}
+
+@mixin btn($color) {
+  border: none;
+  background-color: $color;
+  color: #fff;
+  display: inline-block;
+  height: auto;
+  line-height: 1;
+  padding: 13px 25px;
+  min-width: 180px;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.3s;
+  border-radius: 0;
+  @include hFont;
+  font-size: 16px;
+  box-shadow: 0 0 15px rgba(black, 0.1);
+
+  a {
+    color:#fff;
+    text-decoration: none;
+  }
+
+  &:hover {
+    text-decoration: none;
+    color: #fff;
+    background-color: $color + 20;
+    box-shadow: 0px 1px 4px rgba(black, 0.5);
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+
+  @if $color == #fff {
+    color: $grey-3;
+
+    &:hover {
+      color: $grey-3;
+    }
+  }
+}
+
+@mixin btnDisabled {
+  background-color: $grey-1;
+  color: $grey-1 - 40;
+
+  &:hover {
+    background-color: $grey-1;
+    color: $grey-1 - 40;
+    box-shadow: none;
+  }
+}
+
+@mixin btn-outline-white {
+  border: 2px solid #fff;
+  color: #fff;
+  background-color: transparent;
+  box-shadow: none;
+
+  &:hover {
+    background-color: #fff;
+    color: $aColor;
+  }
+}
+
+@mixin btn-stripped {
+  border: none;
+  padding: 3px 15px 3px 5px;
+  background-color: transparent;
+  color: $aColor;
+  box-shadow: none;
+  font-weight: normal;
+  position: relative;
+
+
+  &:hover {
+    color: $aColor;
+    text-decoration: underline;
+    background-color: transparent;
+    box-shadow: none;
+
+    &:after {
+      transform: translate(2px, -50%);
+      text-decoration: none;
+    }
+  }
+}
+
+// Working in ems is annoying. Think in pixels by using this handy function, emCalc(#px)
+@function emCalc($pxWidth) {
+  @return $pxWidth / $em-base * 1em;
+}
+
+@mixin colorHeaders($color) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6 {
+    color: $color;
+  }
+}
+
+// We use this to do clear floats
+@mixin clearfix() {
+  *zoom: 1;
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@mixin spinnyLoader($color,$size) {
+  width: $size;
+  height: $size;
+  border-top: 5px solid $color;
+  border-bottom: 5px solid $color;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-radius: 50%;
+  content: "";
+  animation: spinny 1.5s infinite linear;
+}
+
+@keyframes spinny {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+//wrapper div sizes for adaptive
+$phone: 576px;
+$tablet: 768px;
+$desktop: 992px;
+$widescreen: 1180px;
+
+// Media Query Mixin for Min
+@mixin mq($point) {
+  @if $point == phone {
+    @media (min-width: $phone) {
+      @content;
+    }
+  } @else if $point == tablet {
+    @media (min-width: $tablet) {
+      @content;
+    }
+  } @else if $point == desktop {
+    @media (min-width: $desktop) {
+      @content;
+    }
+  } @else if $point == widescreen {
+    @media (min-width: $widescreen) {
+      @content;
+    }
+  } @else {
+    @media (min-width: $point) {
+      @content;
+    }
+  }
+}
+
+// Media Query Mixin for Min
+@mixin mqMax($point) {
+  @if $point == phone {
+    @media (max-width: $phone - 1) {
+      @content;
+    }
+  } @else if $point == tablet {
+    @media (max-width: $tablet - 1) {
+      @content;
+    }
+  } @else if $point == desktop {
+    @media (max-width: $desktop - 1) {
+      @content;
+    }
+  } @else if $point == widescreen {
+    @media (max-width: $widescreen + 19) {
+      @content;
+    }
+  } @else {
+    @media (max-width: $point) {
+      @content;
+    }
+  }
+}
