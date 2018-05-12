@@ -41,7 +41,7 @@ class Players extends React.Component {
   }
 
   onSelectChange = (data) => {
-    console.log(data);
+    console.log('finally container info!', data);
   }
 
  

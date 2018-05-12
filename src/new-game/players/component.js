@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { AppSlider } from '../../components/forms/app-slider/AppSlider';
+import { SelectOther } from '../../components/forms/select-other/SelectOther';
+
 export class PlayersSelect extends React.Component {
 
 
@@ -7,61 +9,73 @@ export class PlayersSelect extends React.Component {
         super(props);
         this.state = {
             players: 4,
-            inputs: [
-                '',
-                '',
-                '',
-                '',
+            playerDetails: [
+                {},
+                {},
+                {},
+                {},
             ],
             valid: false
         };        
+
+        this.fireChanges = this.fireChanges.bind(this);
+        this.setValidation = this.setValidation.bind(this);
     }    
     
     onSliderChange = (data) => {
-        let temp = [...this.state.inputs];
+
+        let temp = [...this.state.playerDetails];
 
         if(data > temp.length) {
-            temp.push('');
+            temp.push({});
         } else {
             temp = temp.slice(0, data);
         }
 
         this.setState({
             players: data,
-            inputs: temp
-        });
+            playerDetails: temp
+        }, this.setValidation);
+
+
     }
 
-    inputChange = (index,e) => {
-
-        let temp = [...this.state.inputs];
-        temp[index] = e.target.value;
+    onSelectChange = (data) => {
+        let temp = [...this.state.playerDetails];
+        temp[data.index] = {
+            val : data.finalValue,
+            customInput: data.showInput
+        };
 
         this.setState({
-            inputs: temp   
-        });        
-
-        this.setValidation();
+            playerDetails: temp
+        }, this.setValidation);    
+        
     }
 
     setValidation = () => {
         let valid = true;
 
-        this.state.inputs.map((val) => {
-            if(val === '') valid = false;
+        this.state.playerDetails.map((val) => {
+
+            if (typeof val.val === "undefined") {
+                valid = false;
+                return;
+            }
+
+            if(val.val === '') valid = false;
+
         });
 
         this.setState({
             valid: valid
-        });
-    }
-
-
-
-    componentWillUpdate = (nextProps,nextState) => {
-        this.props.onSelectChange(nextState);
-    }
+        }, this.fireChanges);
+    }   
     
+    fireChanges = () => {
+        this.props.onSelectChange(this.state)
+    }    
+
     render() {
 
         return (
@@ -79,12 +93,13 @@ export class PlayersSelect extends React.Component {
                     }}
                     onAfterChange={this.onSliderChange}
                 />
-                <div className="input-wrap">
-                    {this.state.inputs.map((val,index) => (
-                        <div className="input" key={index}>
-                            <input type="text" value={val} className="input" onChange={this.inputChange.bind(this, index)}/>
-                        </div>
-                    ))}                
+                <div className="inputs-wrap">
+         
+                        {[...Array(this.state.players)].map((e, index) => {
+
+                            return <SelectOther key={index} options={this.props.playerSelection} onSelectOtherChange={this.onSelectChange} player={index}/>
+                        })}
+            
                 </div>
             </div>
         );

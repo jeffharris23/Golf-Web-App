@@ -7,7 +7,20 @@
 }
 .rc-slider {
 
-    .rc-slider-handle, .rc-slider-dot {
+    padding:8px 0;
+
+    &.rc-slider-with-marks {
+        padding-bottom:30px;
+    }
+    .rc-slider-handle {
+        border-color:$primary;
+
+        &:hover {
+            border-color:$third;
+        }
+    }
+
+    .rc-slider-dot {
         border-color:$grey-1;
 
         &:active, &.rc-slider-dot-active {
