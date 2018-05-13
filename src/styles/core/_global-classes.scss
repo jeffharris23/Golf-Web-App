@@ -16,6 +16,18 @@
 .btn {
 	@include btn($primary);
 
+	&.btn-link-in {
+		padding:0 !important;
+		min-width: 0 !important;
+	
+		a {
+		  padding: 13px 25px;
+		  min-width: 180px;
+		  display: inline-block;
+		}
+	
+	}
+
 	&.btn-flat {
 		box-shadow: none;
 	}
@@ -42,7 +54,19 @@
 	}
 
 	&.btn-white {
-		@include btn(#fff);
+		@include btn(#fff, "light");
+		
+	}
+
+	&.btn-grey {
+		@include btn($grey-1, "light");
+	}
+
+	&.btn-link-in {
+
+		&.btn-grey a {
+			color:$grey-3;
+		}
 	}
 
 	&.disabled,

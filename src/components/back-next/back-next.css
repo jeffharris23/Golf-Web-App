@@ -1,0 +1,11 @@
+.back-next {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0; }
+  .back-next > div {
+    width: 50%;
+    float: left; }
+  .back-next button a, .back-next button {
+    width: 100%; }

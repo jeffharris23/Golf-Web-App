@@ -8,13 +8,8 @@ export class PlayersSelect extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            players: 4,
-            playerDetails: [
-                {},
-                {},
-                {},
-                {},
-            ],
+            players: props.players.length,
+            playerDetails: props.players,
             valid: false
         };        
 
@@ -95,9 +90,9 @@ export class PlayersSelect extends React.Component {
                 />
                 <div className="inputs-wrap">
          
-                        {[...Array(this.state.players)].map((e, index) => {
+                        {this.state.playerDetails.map((e, index) => {
 
-                            return <SelectOther key={index} options={this.props.playerSelection} onSelectOtherChange={this.onSelectChange} player={index}/>
+                            return <SelectOther key={index} options={this.props.playerSelection} onSelectOtherChange={this.onSelectChange} player={index} value={e.val}/>
                         })}
             
                 </div>

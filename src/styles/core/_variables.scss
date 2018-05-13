@@ -69,7 +69,7 @@ $contentMaxWidth: 800px;
   line-height: 1.4em;
 }
 
-@mixin btn($color) {
+@mixin btn($color, $theme: '') {
   border: none;
   background-color: $color;
   color: #fff;
@@ -86,6 +86,7 @@ $contentMaxWidth: 800px;
   font-size: 16px;
   box-shadow: 0 0 15px rgba(black, 0.1);
 
+
   a {
     color:#fff;
     text-decoration: none;
@@ -100,15 +101,25 @@ $contentMaxWidth: 800px;
 
   &:active {
     box-shadow: none;
+    background-color: $color + 20;
   }
 
-  @if $color == #fff {
+  @if $theme == 'light' {
     color: $grey-3;
 
+    a {
+      color:$grey-3;
+    }
+
     &:hover {
-      color: $grey-3;
+      color: $grey-3 + 20;
     }
   }
+
+
+  
+
+
 }
 
 @mixin btnDisabled {

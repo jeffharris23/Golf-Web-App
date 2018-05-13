@@ -64,7 +64,11 @@ export class SelectOther extends React.Component {
                     <Input s={12} type='select' onChange={this.selectChange} >
                         <option value="">Choose a Player</option>
                         {this.props.options.map((val, key) => (
-                            <option value={val.id} key={val.id} >{val.name}</option>
+                            <option 
+                                value={val.id} 
+                                key={val.id} 
+                                selected={(this.props.value === val.id) ? true : false}
+                            >{val.name}</option>
                         ))}  
                         <option value="newplayer">New Player</option>
                     </Input>

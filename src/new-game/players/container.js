@@ -1,6 +1,9 @@
 import * as React from 'react';
 import { Title } from '../../components/title/Title';
+import { BackNext } from '../../components/back-next/BackNext';
 import { PlayersSelect } from './component.js';
+import { connect } from 'react-redux'; 
+import { updatePlayers } from '../../store/actions/players';
 import './players.css';
 
 
@@ -8,56 +11,68 @@ class Players extends React.Component {
   constructor(props) {
     super(props);
 
-    //state for players can be handled here
-    //todo connect to firebase to make dropdown dynamic
-    this.state = {
-      playerSelection: [
-        {
-          id: 'jg',
-          name: 'James Grassie'
-        },
-        {
-          id: 'jh',
-          name: 'Jeff Harris'
-        },
-        {
-          id: 'sj',
-          name: 'Scotty Jackson'
-        },
-        {
-          id: 'rk',
-          name: 'Ryan Kornelson'
-        },
-        {
-          id: 'bc',
-          name: 'Brent Carlin'
-        },                    
-        {
-          id: 'ar',
-          name: 'Alex Reid'
-        },          
-      ]
+    this.state =  {
+      next: {
+        disabled: true
+      }
     }
   }
 
   onSelectChange = (data) => {
-    console.log('finally container info!', data);
+
+    let disabled = true;
+
+    if(data.valid) {
+      this.props.updatePlayers(data.playerDetails);
+      disabled = false;
+
+    }
+
+    this.setState({
+      next: {
+        disabled : disabled
+      }
+    });
   }
 
  
   render() {
     return (
-      <section className="page">
+      <section className="page style-back-next">
         <div className="container center">
           <Title title="Number of Players" />
           <PlayersSelect 
             onSelectChange={this.onSelectChange}
-            playerSelection={this.state.playerSelection}
+            playerSelection={this.props.playersList}
+            players={this.props.players}
           />
         </div>
+        <BackNext 
+          prev={{
+            url: '/'
+          }}
+          next={{
+            url: '/games',
+            disabled: this.state.next.disabled,
+          }}
+        />
       </section>
     );
   }
 }
 
-export default Players;
+
+const mapDispatchToProps = {
+  updatePlayers,
+};
+
+function mapStateToProps(state) {
+  return { 
+    playersList: state.rootReducer.playersList,
+    players: state.rootReducer.players 
+    
+  
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Players);
