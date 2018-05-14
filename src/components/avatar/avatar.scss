@@ -1,0 +1,20 @@
+@import "../../styles/core/variables";
+.avatar-wrap {
+    width:40px;
+    height:40px;
+    border-radius: 50%;
+    background-color:$grey-3;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+
+    .label {
+        color:#fff;
+        font-weight: 700;
+        font-size:13px;
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+    }
+}

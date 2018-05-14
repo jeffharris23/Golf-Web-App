@@ -1,0 +1,37 @@
+/* =============================================================================
+   Main Site Variables
+   ========================================================================== */
+/* Site Vars */
+@keyframes bounce {
+  0% {
+    transform: translateY(0); }
+  50% {
+    transform: translateY(10px); }
+  100% {
+    transform: translateY(0px); } }
+
+@keyframes spinny {
+  0% {
+    transform: rotate(0deg); }
+  50% {
+    transform: rotate(180deg); }
+  100% {
+    transform: rotate(360deg); } }
+
+.horizontal-scroller {
+  overflow-x: auto;
+  position: relative;
+  background-color: #333333;
+  padding: 7px 0;
+  text-align: center; }
+  .horizontal-scroller ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    white-space: nowrap; }
+  .horizontal-scroller li {
+    display: inline-block;
+    margin-left: 15px;
+    vertical-align: middle; }
+    .horizontal-scroller li:first-child {
+      margin-left: 0; }

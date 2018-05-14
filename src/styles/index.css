@@ -784,6 +784,13 @@ Tablet +
   margin: 20px 0; }
   .btn-wrap.stacked div:first-child {
     margin-bottom: 10px; }
+  .btn-wrap i {
+    position: relative;
+    top: 3px; }
+    .btn-wrap i.before {
+      padding-right: 5px; }
+    .btn-wrap i.after {
+      padding-left: 5px; }
   .btn-wrap.nmb {
     margin-bottom: 0; }
   .btn-wrap.nmt {
@@ -813,6 +820,24 @@ Tablet +
 
 .padding-top-sm {
   padding-bottom: 30px; }
+
+.bg-primary {
+  background-color: #F22B29; }
+
+.bg-secondary {
+  background-color: #F9C22E; }
+
+.bg-third {
+  background-color: #53B3CB; }
+
+.bg-grey-1 {
+  background-color: #ececec !important; }
+
+.bg-grey-2 {
+  background-color: #8e8e8e !important; }
+
+.bg-grey-3 {
+  background-color: #333333 !important; }
 
 /* =============================================================================
 Phone +
@@ -869,3 +894,7 @@ input:not([type]):focus:not([readonly]) + label, input[type=text]:focus:not([rea
 
 .page {
   padding-top: 60px; }
+  .page.style-back-next {
+    padding-bottom: 50px; }
+  .page.ntp {
+    padding-top: 0; }

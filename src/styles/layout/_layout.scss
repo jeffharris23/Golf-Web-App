@@ -1,3 +1,11 @@
 .page {
     padding-top:60px;
+
+    &.style-back-next {
+        padding-bottom:50px;
+    }
+
+    &.ntp {
+        padding-top:0;
+    }
 }

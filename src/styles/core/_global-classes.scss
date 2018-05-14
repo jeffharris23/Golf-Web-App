@@ -147,6 +147,19 @@
 		}
 	}
 
+	i {
+		position: relative;
+		top:3px;
+
+		&.before {
+			padding-right:5px;
+		}
+
+		&.after {
+			padding-left:5px;
+		}
+	}
+
 	&.nmb {
 		margin-bottom: 0;
 	}
@@ -191,6 +204,31 @@
 .padding-top-sm {
 	padding-bottom: 30px;
 }
+
+.bg-primary {
+	background-color:$primary;
+}
+
+.bg-secondary {
+	background-color:$secondary;
+}
+
+.bg-third {
+	background-color:$third;
+}
+
+.bg-grey-1 {
+	background-color:$grey-1 !important;
+}
+
+.bg-grey-2 {
+	background-color:$grey-2 !important;
+}
+
+.bg-grey-3 {
+	background-color:$grey-3 !important;
+}
+
 
 
 

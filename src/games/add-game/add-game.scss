@@ -1,0 +1,43 @@
+@import "../../styles/core/variables";
+.add-game {
+    position: relative;
+    margin:40px auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 500px;
+
+    .first, .second, .vs {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .vs {
+        font-weight: bold;
+        font-size:14px;
+        margin:0 10px;
+    }
+
+    .first, .second {
+        width:45%;
+        position: relative;
+    }
+
+    .label {
+        color:$grey-2;
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        font-size:13px;
+    }
+
+    .draggable {
+        border:1px $grey-1 - 40 dashed;
+        height:120px;
+        border-radius: 4px; 
+    }
+
+
+}

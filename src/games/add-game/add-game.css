@@ -1,0 +1,49 @@
+/* =============================================================================
+   Main Site Variables
+   ========================================================================== */
+/* Site Vars */
+@keyframes bounce {
+  0% {
+    transform: translateY(0); }
+  50% {
+    transform: translateY(10px); }
+  100% {
+    transform: translateY(0px); } }
+
+@keyframes spinny {
+  0% {
+    transform: rotate(0deg); }
+  50% {
+    transform: rotate(180deg); }
+  100% {
+    transform: rotate(360deg); } }
+
+.add-game {
+  position: relative;
+  margin: 40px auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px; }
+  .add-game .first, .add-game .second, .add-game .vs {
+    display: inline-block;
+    vertical-align: middle; }
+  .add-game .vs {
+    font-weight: bold;
+    font-size: 14px;
+    margin: 0 10px; }
+  .add-game .first, .add-game .second {
+    width: 45%;
+    position: relative; }
+  .add-game .label {
+    color: #8e8e8e;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 13px; }
+  .add-game .draggable {
+    border: 1px #c4c4c4 dashed;
+    height: 120px;
+    border-radius: 4px; }
