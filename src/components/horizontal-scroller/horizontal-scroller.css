@@ -20,10 +20,13 @@
 
 .horizontal-scroller {
   overflow-x: auto;
+  overflow-y: hidden;
   position: relative;
   background-color: #333333;
-  padding: 7px 0;
-  text-align: center; }
+  padding: 0;
+  text-align: center;
+  height: 55px;
+  line-height: 55px; }
   .horizontal-scroller ul {
     padding: 0;
     margin: 0;

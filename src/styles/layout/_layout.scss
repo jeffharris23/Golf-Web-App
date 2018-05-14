@@ -8,4 +8,12 @@
     &.ntp {
         padding-top:0;
     }
+
+    &.playerlist-fixed {
+        padding-top:50px;
+    }
+}
+
+.main-content {
+    padding-top:$fixed-header;
 }

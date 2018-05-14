@@ -19,9 +19,13 @@
     transform: rotate(360deg); } }
 
 header {
-  position: relative;
-  height: 54px;
-  background-color: #efefef; }
+  position: fixed;
+  height: 55px;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #efefef;
+  z-index: 200; }
   header .container {
     position: relative;
     height: 100%; }

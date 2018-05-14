@@ -1,8 +1,17 @@
 import * as React from 'react';
 import './avatar.css';
 
-export const Avatar = (props) => (
-    <div className={'avatar-wrap ' + props.classWrap} style={{backgroundColor: props.bg}}>
-        <span className="label test">{props.label}</span>
-    </div>
-);
+export default class Avatar extends React.Component {
+    // constructor(props) {
+    //     super(props);
+    // }
+    render() {
+        return (
+            <div className={this.props.classWrap ? "avatar-wrap " + this.props.classWrap : "avatar-wrap" } style={{backgroundColor: this.props.bg}} key="this.props.label" data-id={this.props.label}>
+                <span>{this.props.label}</span>
+            </div>
+
+
+        )
+    }
+}

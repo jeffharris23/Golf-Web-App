@@ -20,30 +20,67 @@
 
 .add-game {
   position: relative;
-  margin: 40px auto;
+  margin: 20px auto;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
   max-width: 500px; }
-  .add-game .first, .add-game .second, .add-game .vs {
-    display: inline-block;
-    vertical-align: middle; }
+  .add-game .delete-game {
+    position: absolute;
+    right: -5px;
+    bottom: -5px;
+    line-height: 30px;
+    width: 30px;
+    height: 30px; }
+    .add-game .delete-game i {
+      line-height: 30px;
+      font-size: 18px; }
+    .add-game .delete-game:hover {
+      color: #F22B29;
+      cursor: pointer; }
   .add-game .vs {
     font-weight: bold;
     font-size: 14px;
     margin: 0 10px; }
-  .add-game .first, .add-game .second {
+  .add-game .first,
+  .add-game .second {
+    overflow: hidden;
     width: 45%;
     position: relative; }
+    .add-game .first.has-items .label,
+    .add-game .second.has-items .label {
+      top: 85%; }
+    .add-game .first.has-items .delete,
+    .add-game .second.has-items .delete {
+      transform: translateY(0);
+      opacity: 1; }
+  .add-game .delete {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    color: #8e8e8e;
+    font-size: 20px;
+    transform: translateY(-80px);
+    opacity: 0;
+    transition: 0.5; }
   .add-game .label {
     color: #8e8e8e;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 13px; }
+    font-size: 11px;
+    transition: 0.3s; }
   .add-game .draggable {
     border: 1px #c4c4c4 dashed;
     height: 120px;
     border-radius: 4px; }
+    .add-game .draggable .block-list {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .add-game .draggable .block-list > div:hover, .add-game .draggable .block-list > div:active {
+        cursor: move;
+        cursor: grab; }

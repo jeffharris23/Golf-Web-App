@@ -1,43 +1,104 @@
-@import "../../styles/core/variables";
+@import '../../styles/core/variables';
 .add-game {
+  position: relative;
+  margin: 20px auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+
+  .first,
+  .second,
+  .vs {
+    // display: inline-block;
+    // vertical-align: middle;
+  }
+
+  .delete-game {
+    position: absolute;
+    right: -5px;
+    bottom: -5px;
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+
+    i {
+      line-height: 30px;
+      font-size: 18px;
+    }
+
+    // margin-top:5px;
+
+    &:hover {
+      color: $primary;
+      cursor: pointer;
+    }
+  }
+
+  .vs {
+    font-weight: bold;
+    font-size: 14px;
+    margin: 0 10px;
+  }
+
+  .first,
+  .second {
+    overflow: hidden;
+    width: 45%;
     position: relative;
-    margin:40px auto;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 500px;
 
-    .first, .second, .vs {
-        display: inline-block;
-        vertical-align: middle;
+    &.has-items {
+      .label {
+        top: 85%;
+      }
+
+      .delete {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
+  }
 
-    .vs {
-        font-weight: bold;
-        font-size:14px;
-        margin:0 10px;
+  .delete {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    color: $grey-2;
+    font-size: 20px;
+    transform: translateY(-80px);
+    opacity: 0;
+    transition: 0.5;
+  }
+
+  .label {
+    color: $grey-2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 11px;
+    transition: 0.3s;
+  }
+
+  .draggable {
+    border: 1px $grey-1 - 40 dashed;
+    height: 120px;
+    border-radius: 4px;
+
+    .block-list {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      > div {
+        &:hover,
+        &:active {
+          cursor: move;
+          cursor: grab;
+        }
+      }
     }
-
-    .first, .second {
-        width:45%;
-        position: relative;
-    }
-
-    .label {
-        color:$grey-2;
-        position: absolute;
-        top:50%;
-        left:50%;
-        transform:translate(-50%,-50%);
-        font-size:13px;
-    }
-
-    .draggable {
-        border:1px $grey-1 - 40 dashed;
-        height:120px;
-        border-radius: 4px; 
-    }
-
-
+  }
 }

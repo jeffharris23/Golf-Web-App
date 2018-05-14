@@ -18,9 +18,14 @@
   100% {
     transform: rotate(360deg); } }
 
-h2 {
-  background-color: #ececec; }
-
-.dropzone {
-  border: 2px solid red;
-  height: 150px; }
+.player-list {
+  position: fixed;
+  top: 55px;
+  left: 0;
+  right: 0;
+  z-index: 50; }
+  .player-list .block-list > div {
+    margin: 0 8px; }
+    .player-list .block-list > div:hover, .player-list .block-list > div:active {
+      cursor: move;
+      cursor: grab; }

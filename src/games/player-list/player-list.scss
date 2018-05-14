@@ -1,0 +1,20 @@
+@import "../../styles/core/variables";
+.player-list {
+    position: fixed;
+    top:$fixed-header;
+    left:0; 
+    right:0;
+    z-index: 50;
+
+    .block-list {
+
+
+        > div {
+            margin:0 8px;
+            &:hover, &:active {
+                cursor: move; 
+                cursor: grab;
+            }
+        }
+    }
+}

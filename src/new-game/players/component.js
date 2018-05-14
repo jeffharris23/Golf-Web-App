@@ -55,16 +55,16 @@ export class PlayersSelect extends React.Component {
 
             if (typeof val.val === "undefined") {
                 valid = false;
-                return;
             }
 
             if(val.val === '') valid = false;
 
         });
 
-        this.setState({
+        return this.setState({
             valid: valid
         }, this.fireChanges);
+
     }   
     
     fireChanges = () => {

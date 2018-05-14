@@ -1,9 +1,13 @@
 @import "../../styles/core/variables";
 
 header {
-    position: relative;
-    height:54px;
+    position: fixed;
+    height:$fixed-header;
+    top:0; 
+    left:0;
+    right:0;
     background-color:#efefef;
+    z-index: 200;
 
     .container {
         position: relative;

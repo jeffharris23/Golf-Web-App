@@ -1,10 +1,13 @@
 @import "../../styles/core/variables";
 .horizontal-scroller {
     overflow-x: auto;
+    overflow-y: hidden;
     position: relative;
     background-color:$grey-3;
-    padding:7px 0;
+    padding:0;
     text-align: center;
+    height:$fixed-header;
+    line-height: $fixed-header;
 
     ul {
         padding: 0;

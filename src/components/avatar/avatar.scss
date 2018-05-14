@@ -3,12 +3,25 @@
     width:40px;
     height:40px;
     border-radius: 50%;
+    margin:3px;
     background-color:$grey-3;
     position: relative;
     display: inline-block;
     vertical-align: middle;
 
-    .label {
+    &.light-theme {
+        background-color:$grey-1;
+
+        span {
+            color:$pColor;
+        }
+    }
+
+    &.med-theme {
+        background-color:$grey-2;
+    }    
+
+    span {
         color:#fff;
         font-weight: 700;
         font-size:13px;
