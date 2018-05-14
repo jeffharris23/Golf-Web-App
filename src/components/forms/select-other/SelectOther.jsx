@@ -59,9 +59,9 @@ export class SelectOther extends React.Component {
 
     render() {
         return (
-            <div className="select-other">
-                <div className="input-wrap">
-                    <Input s={12} type='select' onChange={this.selectChange} defaultValue={this.props.value}>
+            <div className="select-other" >
+                <div className="input-wrap" id="foo">
+                    <Input s={12} type='select' onChange={this.selectChange} defaultValue={this.props.value} id="select">
                         <option value="">Choose a Player</option>
                         {this.props.options.map((val, key) => (
                             <option 
@@ -81,4 +81,5 @@ export class SelectOther extends React.Component {
 
 
 }
+
 

@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 import Header from '../shared/header/Header';
 import Main from '../shared/main/Main';
 
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 
 function getRouteClass(route) {
     if(route === '/') return 'home';
@@ -27,8 +27,8 @@ class ClassWrap extends React.Component {
     render() {
       return (
         <div className={`wrapper ${this.props.class}`}>
-            <Header auth={this.props.auth}/>
-            <Main auth={this.props.auth} />
+            <Header />
+            <Main store={this.props.store} />
         </div>
       );
     }

@@ -7,7 +7,7 @@ class App extends Component {
 
   render() {
     return (
-      <ClassWrap auth={this.props.auth}/>
+      <ClassWrap store={this.props.store}/>
     );
   }
 }
