@@ -1,7 +1,12 @@
 import { UPDATE_GAMES } from "../actions/games";
 
 const initialState = {
-  games: []
+  games: [
+    {
+      first: [],
+      second: []
+    }
+  ]
 };
 const gamesReducer = (state = initialState, action) => {
     switch (action.type) {

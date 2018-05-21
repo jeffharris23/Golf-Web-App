@@ -110,8 +110,8 @@ const mapDispatchToProps = {
 
 function mapStateToProps(state) {
   return { 
-    playersList: state.rootReducer.playersList,
-    players: state.rootReducer.players 
+    playersList: state.players.playersList,
+    players: state.players.players 
     
   
   };

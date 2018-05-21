@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { BackNext } from '../components/back-next/BackNext';
 import { connect } from 'react-redux';
-import { updatePlayers } from '../store/actions/players';
+import { updateGames } from '../store/actions/games';
 import './games.css';
 import AddGame from './add-game/AddGame';
 import PlayerList from './player-list/PlayerList';
@@ -15,12 +15,7 @@ class Games extends React.Component {
         disabled: true
       },
       players: [...props.players],
-      games: [
-        {
-          first: [],
-          second: []
-        }
-      ]
+      games: [...props.games]
     };
  
   }
@@ -58,14 +53,23 @@ class Games extends React.Component {
   };
 
   changeEvent = () => {
+
+    //this will enabled next if valid
     this.checkValidity();
+
+    //update store
+    this.props.updateGames(this.state.games);
+
+
+
+    // this.props.updatePlayers(temp);
     // console.log(this.state.games);
   }
 
   checkValidity = () => {
 
     let disabled = true;
-
+    let temp = [];
     this.state.games.forEach(val => { 
 
       if(val.first.length > 0 && val.second.length > 0) {
@@ -73,9 +77,6 @@ class Games extends React.Component {
       }
 
     });
-
-    //dispatch valid games
-    // this.props.updateGames(temp);
 
     this.setState({
       next: {
@@ -127,14 +128,15 @@ class Games extends React.Component {
 }
 
 const mapDispatchToProps = {
-  updatePlayers
+  updateGames
 };
 
 
 function mapStateToProps(state) {
   return {
-    playersList: state.rootReducer.playersList,
-    players: state.rootReducer.players.map(val => val.id)
+    games: state.games.games,
+    playersList: state.players.playersList,
+    players: state.players.players.map(val => val.id)
   };
 }
 
