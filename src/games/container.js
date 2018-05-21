@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { BackNext } from '../components/back-next/BackNext';
 import { connect } from 'react-redux';
-import { updateGames } from './games-actions';
+import { updateGames } from './actions';
 import './games.css';
 import AddGame from './add-game/AddGame';
 import PlayerList from './player-list/PlayerList';

@@ -96,7 +96,7 @@ class Players extends React.Component {
         </div>
         <BackNext 
           prev={{
-            url: '/'
+            url: '/course'
           }}
           next={{
             url: '/games',
