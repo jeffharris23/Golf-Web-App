@@ -101,7 +101,19 @@ export class PlayersSelect extends React.Component {
          
                         {this.state.playerDetails.map((e, index) => {
 
-                            return <SelectOther key={index} options={this.props.playerSelection} onSelectOtherChange={this.onSelectChange} player={index} value={e.id}/>
+                            return <SelectOther 
+                                    key={index} 
+                                    options={this.props.playerSelection} 
+                                    onSelectOtherChange={this.onSelectChange} 
+                                    selectLabel="Choose a Player"
+                                    selectAddLabel="New Player"
+                                    inputLabel="Enter player's full name"
+                                    player={index} 
+                                    value={e.id}
+                                    label={e.name}
+                                    customInput={e.customInput}
+                                    
+                                />
                         })}
             
                 </div>

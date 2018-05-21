@@ -6,9 +6,10 @@ export class SelectOther extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            showInput : false,
+            showInput : props.customInput,
             finalValue: '',
             valid: false,
+            label: this.props.label,
             index: this.props.player
         };
 
@@ -40,9 +41,8 @@ export class SelectOther extends React.Component {
             finalValue : value,
             label: label,
             valid: valid
-        }); 
+        }, this.fireChanges); 
 
-        this.fireChanges();
     }
 
     inputChange = (e) => {
@@ -56,9 +56,7 @@ export class SelectOther extends React.Component {
             finalValue : e.target.value,
             valid : valid,
             label: e.target.value
-        }); 
-
-        this.fireChanges();
+        }, this.fireChanges); 
     }
 
     fireChanges = () => {
@@ -69,17 +67,26 @@ export class SelectOther extends React.Component {
         return (
             <div className="select-other" >
                 <div className="input-wrap" id="foo">
-                    <Input s={12} type='select' onChange={this.selectChange} defaultValue={this.props.value} id="select">
-                        <option value="">Choose a Player</option>
+                    <Input s={12} type='select' 
+                        onChange={this.selectChange} 
+                        defaultValue={ this.props.customInput ? '' : this.props.value } 
+                        id="select"
+                    >
+                        <option value="">{this.props.selectLabel}</option>
                         {this.props.options.map((val, key) => (
                             <option 
                                 value={val.id} 
                                 key={val.id} 
                             >{val.name}</option>
                         ))}  
-                        <option value="newplayer">New Player</option>
+                        <option value="newplayer">{this.props.selectAddLabel}</option>
                     </Input>
-                    { this.state.showInput ? <Input s={12} label="Enter player's full name" onChange={this.inputChange}></Input> : null }
+                    { this.state.showInput ? <Input 
+                                                s={12} 
+                                                label={this.props.inputLabel} 
+                                                onChange={this.inputChange}
+                                                defaultValue={ this.props.customInput ? this.props.label : '' } 
+                                            ></Input> : null }
                     
                 </div>
             </div>

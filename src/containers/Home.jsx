@@ -21,7 +21,7 @@ class Home extends React.Component {
           <Title title="Choose a Game" />
           <div className="btn-wrap stacked">
             <div>
-              <Button waves='light' node='div' className="btn-link-in"><NavLink exact to='/players' className="nav-item nav-link">New Game</NavLink></Button>
+              <Button waves='light' node='div' className="btn-link-in"><NavLink exact to='/course' className="nav-item nav-link">New Game</NavLink></Button>
             </div>
             <div>
               <Button waves='light' className="btn-link-in"><NavLink exact to='/players' className="nav-item nav-link">Resume Game</NavLink></Button>

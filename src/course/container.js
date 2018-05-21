@@ -17,7 +17,7 @@ class Course extends React.Component {
     return (
       <section className="page">
         <div className="container center">
-          <Title title="Course select!" />
+          <Title title="Select a Course" />
         </div>
 
       </section>
