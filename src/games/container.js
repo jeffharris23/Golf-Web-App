@@ -6,6 +6,7 @@ import './games.css';
 import AddGame from './add-game/AddGame';
 import PlayerList from './player-list/PlayerList';
 import { Button, Icon } from 'react-materialize';
+import { withRouter } from 'react-router-dom';
 
 class Games extends React.Component {
   constructor(props) {
@@ -165,4 +166,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Games);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Games));
