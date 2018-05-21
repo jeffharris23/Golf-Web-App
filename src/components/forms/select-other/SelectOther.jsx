@@ -11,7 +11,9 @@ export class SelectOther extends React.Component {
             valid: false,
             index: this.props.player
         };
-    }       
+
+    } 
+    
 
     selectChange = (e) => {
         

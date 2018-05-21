@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { BackNext } from '../components/back-next/BackNext';
 import { connect } from 'react-redux';
-import { updateGames } from '../store/actions/games';
+import { updateGames } from './games-actions';
 import './games.css';
 import AddGame from './add-game/AddGame';
 import PlayerList from './player-list/PlayerList';
@@ -9,6 +9,7 @@ import { Button, Icon } from 'react-materialize';
 
 class Games extends React.Component {
   constructor(props) {
+
     super(props);
     this.state = {
       next: {
@@ -18,6 +19,10 @@ class Games extends React.Component {
       games: [...props.games]
     };
  
+  }
+
+  componentDidMount() {
+    this.checkValidity();
   }
 
   addGame = () => {
@@ -59,17 +64,36 @@ class Games extends React.Component {
 
     //update store
     this.props.updateGames(this.state.games);
+  }
 
+  nextClick = () => {
+    this.removeIncompleteGames(() => {
+      this.props.updateGames(this.state.games);
+      this.props.history.push('/round');
+    });
 
+  }
 
-    // this.props.updatePlayers(temp);
-    // console.log(this.state.games);
+  removeIncompleteGames = (fn) => {
+
+    let temp = [];
+    this.state.games.forEach(val => { 
+
+      if(val.first.length > 0 && val.second.length > 0) {
+        temp.push(val);
+      }
+
+    });
+
+    this.setState({
+      games: temp
+    }, fn);
+
   }
 
   checkValidity = () => {
 
     let disabled = true;
-    let temp = [];
     this.state.games.forEach(val => { 
 
       if(val.first.length > 0 && val.second.length > 0) {
@@ -118,9 +142,10 @@ class Games extends React.Component {
             url: '/players'
           }}
           next={{
-            url: '/games',
-            disabled: this.state.next.disabled
+            disabled: this.state.next.disabled,
+            label : 'Start'
           }}
+          nextHandleClick={this.nextClick}
         />
       </section>
     );

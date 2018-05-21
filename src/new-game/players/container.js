@@ -16,7 +16,12 @@ class Players extends React.Component {
         disabled: true
       }
     }
+
+    
   }
+
+  
+
 
   onSelectChange = (data) => {
 

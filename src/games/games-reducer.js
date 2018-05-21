@@ -1,4 +1,4 @@
-import { UPDATE_GAMES } from "../actions/games";
+import { UPDATE_GAMES } from "./games-actions";
 
 const initialState = {
   games: [

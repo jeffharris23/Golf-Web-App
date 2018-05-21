@@ -13,8 +13,8 @@ export class BackNext extends React.Component {
     // } 
 
 
-
     render() {
+        const nextClasses = this.props.nextHandleClick ? 'btn next' : 'btn next btn-link-in';
         return (
             <div className="back-next btn-wrap clearfix">
                 <div>
@@ -32,13 +32,30 @@ export class BackNext extends React.Component {
                 <div>
                     <Button 
                         waves='light' 
-                        className="btn next btn-link-in"
+                        className={ nextClasses }
                         disabled={ this.props.next.disabled ? true : false }
+                        onClick={
+                            () => { 
+                                this.props.nextHandleClick ? this.props.nextHandleClick() : true
+                            }
+                        }
                     >
-                            <NavLink 
-                                exact 
-                                to={this.props.next.url}>{ this.props.next.label ? this.props.next.label  : 'Next' }
-                            </NavLink>
+                            {
+                                this.props.nextHandleClick  && (
+                                    <span>
+                                        { this.props.next.label ? this.props.next.label  : 'Next' }
+                                    </span>
+                                )
+                            } 
+                            {
+                                !this.props.nextHandleClick  && (
+                                    <NavLink 
+                                        exact 
+                                        to={this.props.next.url}>{ this.props.next.label ? this.props.next.label  : 'Next' }
+                                    </NavLink>
+                                )
+                            }                             
+                            
                     </Button>
                 </div>
             </div>

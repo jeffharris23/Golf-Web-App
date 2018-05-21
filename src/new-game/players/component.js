@@ -16,6 +16,10 @@ export class PlayersSelect extends React.Component {
         this.fireChanges = this.fireChanges.bind(this);
         this.setValidation = this.setValidation.bind(this);
     }    
+
+    componentDidMount() {
+        this.setValidation();
+    }
     
     onSliderChange = (data) => {
 
@@ -36,6 +40,7 @@ export class PlayersSelect extends React.Component {
     }
 
     onSelectChange = (data) => {
+        
         let temp = [...this.state.playerDetails];
         temp[data.index] = {
             id : data.finalValue,
@@ -55,12 +60,15 @@ export class PlayersSelect extends React.Component {
         this.state.playerDetails.map((val) => {
 
             if (typeof val.id === "undefined") {
+                
                 valid = false;
             }
 
             if(val.id === '') valid = false;
 
         });
+
+        
 
         return this.setState({
             valid: valid

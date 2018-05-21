@@ -3,7 +3,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from "./reducers/index";
 import { routerReducer, routerMiddleware } from 'react-router-redux';
 import history from '../history';
-import gamesReducer from './reducers/games';
+import gamesReducer from '../games/games-reducer';
 import playersReducer from './reducers/players';
 
 
