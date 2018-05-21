@@ -14,16 +14,19 @@ export class SelectOther extends React.Component {
     }       
 
     selectChange = (e) => {
-
+        
         const val = e.target.value;
+        const index = e.target.selectedIndex;
         let show = false;
         let value = '';
         let valid = false;
+        let label = "";
 
         if(val === 'newplayer') {
             show = true;
         } else {
             value = val;
+            label = e.target.options[index].text;
             
             if(value !== '') {
                 valid = true;
@@ -33,6 +36,7 @@ export class SelectOther extends React.Component {
         this.setState({
             showInput : show,
             finalValue : value,
+            label: label,
             valid: valid
         }); 
 
@@ -40,6 +44,7 @@ export class SelectOther extends React.Component {
     }
 
     inputChange = (e) => {
+
         const val = e.target.value;
         let valid = false;
         if(val !== '') {
@@ -47,7 +52,8 @@ export class SelectOther extends React.Component {
         }
         this.setState({
             finalValue : e.target.value,
-            valid : valid
+            valid : valid,
+            label: e.target.value
         }); 
 
         this.fireChanges();
@@ -71,7 +77,7 @@ export class SelectOther extends React.Component {
                         ))}  
                         <option value="newplayer">New Player</option>
                     </Input>
-                    { this.state.showInput ? <Input s={12} label="Enter player's name" onChange={this.inputChange}></Input> : null }
+                    { this.state.showInput ? <Input s={12} label="Enter player's full name" onChange={this.inputChange}></Input> : null }
                     
                 </div>
             </div>

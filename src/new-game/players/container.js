@@ -21,9 +21,32 @@ class Players extends React.Component {
   onSelectChange = (data) => {
 
     let disabled = true;
-
+  
     if(data.valid) {
-      this.props.updatePlayers(data.playerDetails);
+      
+      let temp = [...data.playerDetails];
+      let usedIds = [];
+      temp = temp.map(p => {
+        
+        if(!p.customInput) { 
+          usedIds.push(p.id);
+          return p;
+        }
+
+        let id = this.generateId(p.id);
+        let temp = {...p};
+
+        if(usedIds.indexOf(id) > -1) {
+          id = id + "2";
+        }
+
+        temp.id = id;
+
+        return temp;
+
+      });
+
+      this.props.updatePlayers(temp);
       disabled = false;
 
     }
@@ -33,6 +56,25 @@ class Players extends React.Component {
         disabled : disabled
       }
     });
+  }
+
+  generateId = (val) => {
+    let temp = val.split(" ");
+    let it = "";
+
+
+    if(temp.length > 1) {
+      it = temp[0].charAt(0) + temp[1].charAt(0);
+    } else {
+      if(temp[0].length < 2) {
+        it = temp[0].charAt(0);
+      } else {
+        it = temp[0].charAt(0) + temp[0].charAt(1);
+      }
+    }
+    
+    
+    return it;
   }
 
  

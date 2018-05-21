@@ -38,7 +38,8 @@ export class PlayersSelect extends React.Component {
     onSelectChange = (data) => {
         let temp = [...this.state.playerDetails];
         temp[data.index] = {
-            val : data.finalValue,
+            id : data.finalValue,
+            name: data.label,
             customInput: data.showInput
         };
 
@@ -53,11 +54,11 @@ export class PlayersSelect extends React.Component {
 
         this.state.playerDetails.map((val) => {
 
-            if (typeof val.val === "undefined") {
+            if (typeof val.id === "undefined") {
                 valid = false;
             }
 
-            if(val.val === '') valid = false;
+            if(val.id === '') valid = false;
 
         });
 
@@ -92,7 +93,7 @@ export class PlayersSelect extends React.Component {
          
                         {this.state.playerDetails.map((e, index) => {
 
-                            return <SelectOther key={index} options={this.props.playerSelection} onSelectOtherChange={this.onSelectChange} player={index} value={e.val}/>
+                            return <SelectOther key={index} options={this.props.playerSelection} onSelectOtherChange={this.onSelectChange} player={index} value={e.id}/>
                         })}
             
                 </div>

@@ -8,7 +8,9 @@ export default class Avatar extends React.Component {
     render() {
         return (
             <div className={this.props.classWrap ? "avatar-wrap " + this.props.classWrap : "avatar-wrap" } style={{backgroundColor: this.props.bg}} key="this.props.label" data-id={this.props.label}>
-                <span>{this.props.label}</span>
+                <span>
+                    { this.props.label ? this.props.label.toUpperCase() : '' }
+                </span>
             </div>
 
 

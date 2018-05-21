@@ -21,7 +21,7 @@ describe("Avatar component", () => {
 
     beforeEach(() => {
         props = {
-            label: "JH",
+            label: "jh",
             classWrap: "wrapper",
             bg: "#fff",
         };
@@ -34,10 +34,11 @@ describe("Avatar component", () => {
         expect(divs.length).toBeGreaterThan(0);
     });    
 
-    it("it renders span with initials", () => {
+    it("it renders span with uppercase initials", () => {
         const span = avatar().find("span");
         expect(span.text()).toBe('JH');
-    });       
+    });     
+         
 
     it("it has a wrapper class", () => {
         const wrapper = avatar();

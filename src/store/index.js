@@ -3,6 +3,8 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from "./reducers/index";
 import { routerReducer, routerMiddleware } from 'react-router-redux';
 import history from '../history';
+import gamesReducer from './reducers/games';
+import playersReducer from './reducers/players';
 
 
 const middleware = routerMiddleware(history)
@@ -10,7 +12,9 @@ const middleware = routerMiddleware(history)
 
 const reducers = combineReducers({
     rootReducer,
-    router: routerReducer
+    router: routerReducer,
+    games: gamesReducer,
+    players: playersReducer
 })
 
 const store = createStore(reducers, composeWithDevTools(
