@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow, mount, render } from 'enzyme';
-import { Avatar } from './Avatar';
+import Avatar from './Avatar';
 
 
 

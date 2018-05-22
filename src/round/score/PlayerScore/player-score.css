@@ -1,0 +1,14 @@
+/* =============================================================================
+   Main Site Variables
+   ========================================================================== */
+/* Site Vars */
+.player-score {
+  margin: 10px 0; }
+  .player-score .col {
+    display: inline-block;
+    vertical-align: middle; }
+  .player-score .input-wrap {
+    width: 50px;
+    margin: 0 30px; }
+    .player-score .input-wrap input {
+      text-align: center; }

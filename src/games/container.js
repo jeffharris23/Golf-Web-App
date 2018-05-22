@@ -2,6 +2,7 @@ import * as React from 'react';
 import { BackNext } from '../components/back-next/BackNext';
 import { connect } from 'react-redux';
 import { updateGames } from './actions';
+import { updateRound } from '../round/actions';
 import './games.css';
 import AddGame from './add-game/AddGame';
 import PlayerList from './player-list/PlayerList';
@@ -70,7 +71,17 @@ class Games extends React.Component {
   nextClick = () => {
     this.removeIncompleteGames(() => {
       this.props.updateGames(this.state.games);
-      this.props.history.push('/round');
+      
+
+      //todo update/create round in some kinda db
+      this.props.updateRound({
+        id: 1,
+        datetime: new Date(),
+        completed: false,
+        progress: 1
+      })
+      
+      this.props.history.push('/round/1');
     });
 
   }
@@ -154,7 +165,8 @@ class Games extends React.Component {
 }
 
 const mapDispatchToProps = {
-  updateGames
+  updateGames,
+  updateRound,
 };
 
 

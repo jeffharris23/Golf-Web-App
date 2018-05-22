@@ -2,22 +2,6 @@
    Main Site Variables
    ========================================================================== */
 /* Site Vars */
-@keyframes bounce {
-  0% {
-    transform: translateY(0); }
-  50% {
-    transform: translateY(10px); }
-  100% {
-    transform: translateY(0px); } }
-
-@keyframes spinny {
-  0% {
-    transform: rotate(0deg); }
-  50% {
-    transform: rotate(180deg); }
-  100% {
-    transform: rotate(360deg); } }
-
 .player-list {
   position: fixed;
   top: 55px;

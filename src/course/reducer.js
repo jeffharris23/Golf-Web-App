@@ -2,7 +2,7 @@ import { UPDATE_COURSE } from "./actions";
 
 const initialState = {
   selectedCourse: {
-      id: '',
+      id: null,
       name: '',
   },
   

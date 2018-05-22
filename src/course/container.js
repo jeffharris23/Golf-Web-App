@@ -10,19 +10,36 @@ class Course extends React.Component {
   constructor(props) {
     super(props);
 
+    let disabled = true;
+
+    if(this.props.selectedCourse.id) {
+      disabled = false;
+    }
+
     this.state =  {
       next: {
-        disabled: true
+        disabled: disabled
       }
     }
   }
 
   selectChange = (e) => {
     let disabled = true;
+    let course = {
+      id: null,
+      name: '',
+    };
 
     if(e.target.value !== '') {
       disabled = false;
+      const index = e.target.selectedIndex;
+      course = {
+        id: parseInt(e.target.value),
+        name: e.target.options[index].text
+      };
     }
+
+    this.props.updateCourse(course);
 
     this.setState({
       next: {
@@ -41,6 +58,7 @@ class Course extends React.Component {
             s={12} 
             type='select' 
             onChange={this.selectChange} 
+            defaultValue={this.props.selectedCourse.id}
           >
             <option value="">Select a Course</option>
             {this.props.courseList.map((val, key) => (
@@ -75,6 +93,7 @@ const mapDispatchToProps = {
 function mapStateToProps(state) {
   return { 
     courseList: state.course.courseList,    
+    selectedCourse: state.course.selectedCourse
   
   };
 }
