@@ -47,8 +47,9 @@ describe("Score component", () => {
         mountedComponent = undefined;
     });
 
-    it("always renders a wrapper div", () => {
-        const div = score().find(".score-wrap");
+    it("renders", () => {
+        const wrapper = shallow(<Score players={[]} />);
+        const div = wrapper.find(".score-wrap");
         expect(div.length).toBeGreaterThan(0);
     });      
   

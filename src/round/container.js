@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux'; 
 import { updatePlayers } from '../store/actions/players';
 import { updateScore } from '../store/actions/scores';
-import { HolePager } from './hole-pager/HolePager';
+import HolePager from './hole-pager/HolePager';
 import Score from './score/Score';
 
 
@@ -10,12 +10,15 @@ import Score from './score/Score';
 class Round extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      nextValid: false
+    };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const { match: { params } } = this.props;
 
-
+    this.checkValidation()
 
     if(params.hole > 18 || params.hole < 1){
       this.props.history.push(`/round/1`);
@@ -32,18 +35,44 @@ class Round extends React.Component {
   }
 
   nextHole = () => {
+    //for any scores that weren't touched my need update them with par for the hole
+    const par = this.props.selectedCourse.holes[this.props.match.params.hole];
+    const hole = this.props.match.params.hole;
+    this.props.scores.map((player,i) => {
+      if(player.holes[hole] === null) {
+        this.props.updateScore({
+          id: player.id,
+          score: par,
+          hole: hole
+        });
+      }
+    });
     const temp = ++this.props.match.params.hole;
     this.props.history.push(`/round/${temp}`);
   }
 
   onScoreChange = e => {
+    let val = e.target.value === "" ? "" : parseInt(e.target.value);
     this.props.updateScore({
-      id: e.target.id,
-      score: parseInt(e.target.value),
+      id: e.target.name,
+      score: val,
       hole: this.props.match.params.hole
     });
-    // console.log(e.target.value, e.target.id);
+
+    //check that input is valid
+    this.checkValidation();
   }
+
+  checkValidation = () => {
+    let valid = true;
+    this.props.scores.map(score => {
+      if(score.holes[this.props.match.params.hole] === "") valid = false;
+    })
+
+    this.setState({
+      nextValid: valid
+    });
+  } 
  
   render() {
     return (
@@ -51,6 +80,7 @@ class Round extends React.Component {
         <div className="container center">
           <HolePager
             hole={this.props.match.params.hole}
+            valid={this.state.nextValid}
             prevClick={this.prevHole}
             nextClick={this.nextHole}
           />

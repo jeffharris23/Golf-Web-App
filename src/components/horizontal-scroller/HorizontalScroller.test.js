@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow, mount, render } from 'enzyme';
 import HorizontalScroller from './HorizontalScroller';
-import  {Avatar} from '../avatar/Avatar';
+import  Avatar from '../avatar/Avatar';
 
 
 

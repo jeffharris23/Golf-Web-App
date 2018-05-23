@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { PlayerScore } from './PlayerScore/PlayerScore';
+import PlayerScore from './PlayerScore/PlayerScore';
 
 
 export default class Score extends React.Component {
@@ -15,7 +15,13 @@ export default class Score extends React.Component {
 
         {this.props.players.map((item, index) => (
 
-            <PlayerScore key={item.id} player={item} onScoreChange={this.props.onScoreChange} par={this.props.par} score={item.holes[this.props.hole]}/>
+            <PlayerScore 
+              key={item.id} 
+              player={item} 
+              onScoreChange={this.props.onScoreChange} 
+              par={this.props.par} 
+              score={item.holes[this.props.hole]}
+            />
   
         ))}
         
