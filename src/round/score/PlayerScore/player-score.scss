@@ -1,7 +1,14 @@
 @import "../../../styles/core/variables";
 
 .player-score {
-    margin:10px 0;
+    margin:20px 0;
+    
+
+    &.score-recorded {
+        .input-wrap input {
+            background-color:#eefde5;
+        }
+    }
 
     .col {display: inline-block; vertical-align: middle;}
 
@@ -10,7 +17,10 @@
         margin:0 30px;
         
         input {
+            border-bottom: none;
             text-align: center;
+            background-color:#faf6d9;
+            margin-bottom:0;
         }
     }
 

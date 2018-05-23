@@ -28,15 +28,15 @@ class Course extends React.Component {
     let course = {
       id: null,
       name: '',
+      holes: {},
+      meta: {}       
     };
 
     if(e.target.value !== '') {
       disabled = false;
-      const index = e.target.selectedIndex;
-      course = {
-        id: parseInt(e.target.value),
-        name: e.target.options[index].text
-      };
+      course = this.props.courseList.filter(val => val.id == e.target.value);
+      course = course[0];
+
     }
 
     this.props.updateCourse(course);

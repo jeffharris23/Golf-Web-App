@@ -5,13 +5,13 @@ import { Title } from '../components/title/Title';
 
 
 class Home extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      pageName: 'Home'
-    };
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     pageName: 'Home'
+  //   };
 
-  }
+  // }
  
 
   render() {

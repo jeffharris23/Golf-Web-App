@@ -6,6 +6,7 @@ import history from '../history';
 import gamesReducer from '../games/reducer';
 import courseReducer from '../course/reducer';
 import playersReducer from './reducers/players';
+import scoresReducer from './reducers/scores';
 import roundReducer from '../round/reducer';
 
 
@@ -19,6 +20,7 @@ const reducers = combineReducers({
     players: playersReducer,
     course: courseReducer,
     round: roundReducer,
+    scores: scoresReducer,
 })
 
 const store = createStore(reducers, composeWithDevTools(

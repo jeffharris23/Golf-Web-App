@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { Route } from 'react-router-dom';
 import { connect } from 'react-redux'; 
 import { updatePlayers } from '../store/actions/players';
+import { updateScore } from '../store/actions/scores';
 import { HolePager } from './hole-pager/HolePager';
 import Score from './score/Score';
 
@@ -10,8 +10,6 @@ import Score from './score/Score';
 class Round extends React.Component {
   constructor(props) {
     super(props);
-
-
   }
 
   componentWillMount() {
@@ -38,7 +36,14 @@ class Round extends React.Component {
     this.props.history.push(`/round/${temp}`);
   }
 
-  
+  onScoreChange = e => {
+    this.props.updateScore({
+      id: e.target.id,
+      score: parseInt(e.target.value),
+      hole: this.props.match.params.hole
+    });
+    // console.log(e.target.value, e.target.id);
+  }
  
   render() {
     return (
@@ -51,7 +56,10 @@ class Round extends React.Component {
           />
 
           <Score
-            players={this.props.players}   
+            hole={this.props.match.params.hole}          
+            par={this.props.selectedCourse.holes[this.props.match.params.hole]}
+            players={this.props.scores} 
+            onScoreChange={this.onScoreChange}  
           />
         </div>
 
@@ -63,11 +71,13 @@ class Round extends React.Component {
 
 const mapDispatchToProps = {
   updatePlayers,
+  updateScore
 };
 
 function mapStateToProps(state) {
   return { 
-    players: state.players.players,
+    scores: state.scores.scores,
+    selectedCourse: state.course.selectedCourse,
     
   };
 }

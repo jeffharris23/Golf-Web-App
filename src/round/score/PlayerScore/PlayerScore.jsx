@@ -1,11 +1,11 @@
 import * as React from 'react';
 import Avatar from '../../../components/avatar/Avatar';
 import './player-score.css';
-import { Input } from 'react-materialize';
+import {  Button, Icon } from 'react-materialize';
 
 
 export const PlayerScore = (props) => (
-    <div className="player-score" 
+    <div className={props.score ? 'player-score score-recorded' : 'player-score' } 
         // onTouchMove={ e => {
         //     console.log(e.touches[0].screenX)
         // }}
@@ -14,10 +14,18 @@ export const PlayerScore = (props) => (
             <Avatar label={props.player.id} />
         </div>
         <div className="input-wrap col">
-            <Input id={props.player.id} type="number" s={12} defaultValue="4" min="1" max="15" onChange={(e) => props.onScoreChange(e)}/>
+            <input 
+                type="number" 
+                min="1" 
+                max="12" 
+                id={props.player.id} 
+                value={props.score ? props.score : props.par } 
+                onChange={props.onScoreChange}
+            />
+
         </div>
         <div className="actions col">
-            <button>Bets</button>
+            <Icon>local_atm</Icon>
         </div>
 
     </div>

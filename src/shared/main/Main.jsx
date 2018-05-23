@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import {  Route } from 'react-router-dom';
 import Home from '../../containers/Home';
 import NotFound from '../../containers/NotFound';
 import Players from '../../new-game/players/container';

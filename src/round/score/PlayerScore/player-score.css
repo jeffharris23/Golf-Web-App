@@ -3,7 +3,9 @@
    ========================================================================== */
 /* Site Vars */
 .player-score {
-  margin: 10px 0; }
+  margin: 20px 0; }
+  .player-score.score-recorded .input-wrap input {
+    background-color: #eefde5; }
   .player-score .col {
     display: inline-block;
     vertical-align: middle; }
@@ -11,4 +13,7 @@
     width: 50px;
     margin: 0 30px; }
     .player-score .input-wrap input {
-      text-align: center; }
+      border-bottom: none;
+      text-align: center;
+      background-color: #faf6d9;
+      margin-bottom: 0; }

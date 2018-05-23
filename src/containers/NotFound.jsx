@@ -5,11 +5,11 @@ import { Title } from '../components/title/Title';
 
 
 class NotFound extends React.Component {
-  constructor(props) {
-    super(props);
+  // constructor(props) {
+  //   super(props);
 
 
-  }
+  // }
  
 
   render() {
