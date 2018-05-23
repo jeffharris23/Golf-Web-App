@@ -9,7 +9,7 @@ export default class PlayerScore extends React.Component {
       super(props);   
 
       this.state = {
-          snips : props.snips
+          snips : props.player.snips
       };
     }
 
@@ -51,6 +51,7 @@ export default class PlayerScore extends React.Component {
                 </div>
                 <div className="input-wrap col">
                     <input 
+                        className="score-input"
                         type="number" 
                         min="1" 
                         max="12" 

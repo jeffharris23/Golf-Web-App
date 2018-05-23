@@ -22,7 +22,6 @@ export default class Score extends React.Component {
               onScoreChange={this.props.onScoreChange} 
               par={this.props.par} 
               score={item.holes[this.props.hole]}
-              snips={item.snips}
               snipsChange={this.props.snipsChange}
             />
   
