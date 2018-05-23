@@ -3,19 +3,7 @@ import './hole-pager.css';
 import { Button } from 'react-materialize';
 
 export default class HolePager extends React.Component {
-    getDisabledNext = () => {
 
-        //if we're on 18th then disable
-        if(this.props.hole > 17) return true;
-
-        //if the scores aren't valid return disable
-        if(!this.props.valid) return true;
-
-        return false;
-
-
-
-    }
     render() {
         return (
             <div className="hole-pager">

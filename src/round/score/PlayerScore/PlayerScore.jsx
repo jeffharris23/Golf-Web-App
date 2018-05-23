@@ -1,28 +1,53 @@
 import * as React from 'react';
-import Avatar from '../../../components/avatar/Avatar';
-import './player-score.css';
-// import {  Button, Icon } from 'react-materialize';
 
+import './player-score.css';
+import Snips from './snips/Snips';
+import Scrubber from './scrubber/Scrubber';
 
 export default class PlayerScore extends React.Component {
     constructor(props) {
       super(props);   
+
+      this.state = {
+          snips : props.snips
+      };
     }
 
     onScoreChange = e => {
         this.props.onScoreChange(e);
     }
+
+    scrubChange = type => {
+        let snips = this.state.snips;
+        if(type === "add") {
+            snips++;
+        } else {
+            snips--;
+            if(snips < 0) {
+                snips = 0;
+            }
+        }
+
+        this.setState({
+            snips: snips
+        });
+
+        this.props.snipsChange({
+            id: this.props.player.id,
+            snips: snips
+        });
+  
+    }
   
     render() {
       return (
 
-            <div className={this.props.score ? 'player-score score-recorded' : 'player-score' } 
-                // onTouchMove={ e => {
-                //     console.log(e.touches[0].screenX)
-                // }}
-            >
+            <div className={this.props.score ? 'player-score score-recorded' : 'player-score' } >
                 <div className="user col">
-                    <Avatar label={this.props.player.id} />
+                    <Scrubber 
+                        label={this.props.player.id} 
+                        scrubChange={this.scrubChange}
+                    />
                 </div>
                 <div className="input-wrap col">
                     <input 
@@ -37,7 +62,7 @@ export default class PlayerScore extends React.Component {
 
                 </div>
                 <div className="actions col">
-                    <p>Snips Area</p>
+                    <Snips snips={this.state.snips}/>
                 </div>
 
             </div>

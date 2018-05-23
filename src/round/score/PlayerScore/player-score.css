@@ -4,6 +4,8 @@
 /* Site Vars */
 .player-score {
   margin: 20px 0; }
+  .player-score .scrubber-wrap {
+    padding: 0 20px; }
   .player-score.score-recorded .input-wrap input {
     background-color: #eefde5; }
   .player-score .col {
@@ -11,7 +13,7 @@
     vertical-align: middle; }
   .player-score .input-wrap {
     width: 50px;
-    margin: 0 30px; }
+    margin: 0 20px 0 0; }
     .player-score .input-wrap input {
       border-bottom: none;
       text-align: center;

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux'; 
 import { updatePlayers } from '../store/actions/players';
-import { updateScore } from '../store/actions/scores';
+import { updateScore, updateSnips } from '../store/actions/scores';
 import HolePager from './hole-pager/HolePager';
 import Score from './score/Score';
 
@@ -73,6 +73,10 @@ class Round extends React.Component {
       nextValid: valid
     });
   } 
+
+  snipsChange = (e) => {
+    this.props.updateSnips(e);
+  }
  
   render() {
     return (
@@ -90,6 +94,7 @@ class Round extends React.Component {
             par={this.props.selectedCourse.holes[this.props.match.params.hole]}
             players={this.props.scores} 
             onScoreChange={this.onScoreChange}  
+            snipsChange={this.snipsChange}
           />
         </div>
 
@@ -101,7 +106,8 @@ class Round extends React.Component {
 
 const mapDispatchToProps = {
   updatePlayers,
-  updateScore
+  updateScore,
+  updateSnips
 };
 
 function mapStateToProps(state) {

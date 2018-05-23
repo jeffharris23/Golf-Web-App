@@ -1,4 +1,4 @@
-import { UPDATE_SCORE } from "../actions/scores";
+import { UPDATE_SCORE, UPDATE_SNIPS } from "../actions/scores";
 
 const initialState = {
   scores: [
@@ -25,7 +25,7 @@ const initialState = {
             17: null,
             18: null,
         },
-        snips: 0,
+        snips: 24,
         meta: {
             front: null,
             back: null,
@@ -35,7 +35,7 @@ const initialState = {
     {
       id: 'jh',
       name: 'Jeff Harris',
-      snips: 0,
+      snips: 4,
       holes: {
             1: 5,
             2: 4,
@@ -135,6 +135,15 @@ const scoresReducer = (state = initialState, action) => {
                 }
             })
             return { ...state, scores: temp };
+
+        case UPDATE_SNIPS:
+            const temp2 = [...state.scores];
+            temp2.map((player,i) => {
+                if(player.id === action.payload.id) {
+                    temp2[i].snips = action.payload.snips;
+                }
+            })            
+            return { ...state, scores: temp2 };            
        
         default:
           return state;

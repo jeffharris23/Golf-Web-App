@@ -1,0 +1,15 @@
+/* =============================================================================
+   Main Site Variables
+   ========================================================================== */
+/* Site Vars */
+.snips-wrap {
+  width: 50px;
+  text-align: left; }
+  .snips-wrap .snip {
+    width: 5px;
+    height: 5px;
+    display: block;
+    float: left;
+    margin: 2px;
+    background-color: #53B3CB;
+    border-radius: 50%; }

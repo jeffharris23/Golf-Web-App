@@ -3,10 +3,11 @@ import PlayerScore from './PlayerScore/PlayerScore';
 
 
 export default class Score extends React.Component {
-  // constructor(props) {
-  //   super(props);
   
-  // }
+  constructor(props) {
+    super(props);
+  
+  }
 
 
   render() {
@@ -21,6 +22,8 @@ export default class Score extends React.Component {
               onScoreChange={this.props.onScoreChange} 
               par={this.props.par} 
               score={item.holes[this.props.hole]}
+              snips={item.snips}
+              snipsChange={this.props.snipsChange}
             />
   
         ))}
