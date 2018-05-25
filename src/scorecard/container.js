@@ -20,34 +20,42 @@ class Scorecard extends React.Component {
 
 //   }
 
-renderHdcp = (key,index) => {
-  // just standard if statement
-  if (index === 8) {
-      return [
-        <td key={index}>{this.props.selectedCourse.holes[key].hdcp}</td>,
-        <td key="out"></td>,
-        <td key="init"></td>
-      ];
+  renderHdcp = (key,index) => {
+    // just standard if statement
+    if (index === 8) {
+        return [
+          <td key={index}>{this.props.selectedCourse.holes[key].hdcp}</td>,
+          <td key="out"></td>,
+          <td key="init"></td>
+        ];
+    }
+    return (
+      <td key={index}>{this.props.selectedCourse.holes[key].hdcp}</td>
+    );
   }
-  return (
-    <td key={index}>{this.props.selectedCourse.holes[key].hdcp}</td>
-  );
-}
 
-renderScore = (player,key,index) => {
+  renderScore = (player,key,index) => {
 
-  // just standard if statement
-  if (index === 8) {
-      return [
-        <td key={index}><IndScore score={player.holes[key]} par={this.props.selectedCourse.holes[key].par}/></td>,
-        <td key="out"></td>,
-        <td key="init"></td>
-      ];
+    // just standard if statement
+    if (index === 8) {
+        return [
+          <td key={index}><IndScore score={player.holes[key]} par={this.props.selectedCourse.holes[key].par}/></td>,
+          <td key="out">{player.meta.front}</td>,
+          <td key="init"></td>
+        ];
+    }
+    return (
+      <td key={index}><IndScore score={player.holes[key]} par={this.props.selectedCourse.holes[key].par}/></td>
+    );
   }
-  return (
-    <td key={index}><IndScore score={player.holes[key]} par={this.props.selectedCourse.holes[key].par}/></td>
-  );
-}
+
+  navigate = hole => {
+    if(hole < 1 || hole > 18) return;
+
+    this.props.history.push(`/round/${hole}`);
+  }
+
+
   render() {
     return (
       <section className="scorecard-wrap">
@@ -89,26 +97,26 @@ renderScore = (player,key,index) => {
               <Table>
                 <thead>
                   <tr>
-                    <th data-field="1">1</th>
-                    <th data-field="2">2</th>
-                    <th data-field="3">3</th>
-                    <th data-field="4">4</th>
-                    <th data-field="5">5</th>
-                    <th data-field="6">6</th>
-                    <th data-field="7">7</th>
-                    <th data-field="8">8</th>
-                    <th data-field="9">9</th>
+                    <th data-field="1" onClick={() => this.navigate(1)}>1</th>
+                    <th data-field="2" onClick={() => this.navigate(2)}>2</th>
+                    <th data-field="3" onClick={() => this.navigate(3)}>3</th>
+                    <th data-field="4" onClick={() => this.navigate(4)}>4</th>
+                    <th data-field="5" onClick={() => this.navigate(5)}>5</th>
+                    <th data-field="6" onClick={() => this.navigate(6)}>6</th>
+                    <th data-field="7" onClick={() => this.navigate(7)}>7</th>
+                    <th data-field="8" onClick={() => this.navigate(8)}>8</th>
+                    <th data-field="9" onClick={() => this.navigate(9)}>9</th>
                     <th data-field="out" className="size-2">Out</th>
                     <th data-field="init" className="size-2">Init</th>
-                    <th data-field="10">10</th>
-                    <th data-field="11">11</th>
-                    <th data-field="12">12</th>
-                    <th data-field="13">13</th>
-                    <th data-field="14">14</th>
-                    <th data-field="15">15</th>
-                    <th data-field="16">16</th>
-                    <th data-field="17">17</th>
-                    <th data-field="18">18</th>                
+                    <th data-field="10" onClick={() => this.navigate(10)}>10</th>
+                    <th data-field="11" onClick={() => this.navigate(11)}>11</th>
+                    <th data-field="12" onClick={() => this.navigate(12)}>12</th>
+                    <th data-field="13" onClick={() => this.navigate(13)}>13</th>
+                    <th data-field="14" onClick={() => this.navigate(14)}>14</th>
+                    <th data-field="15" onClick={() => this.navigate(15)}>15</th>
+                    <th data-field="16" onClick={() => this.navigate(16)}>16</th>
+                    <th data-field="17" onClick={() => this.navigate(17)}>17</th>
+                    <th data-field="18" onClick={() => this.navigate(18)}>18</th>                
                     <th data-field="in" className="size-2">In</th>                
                     <th data-field="tot" className="size-2">Tot</th>                
                   </tr>
@@ -125,8 +133,8 @@ renderScore = (player,key,index) => {
                     return (
                     <tr className="player" key={player.id}>
                       {Object.keys(player.holes).map((key, index) => this.renderScore(currentPlayer,key,index))}
-                      <td></td>
-                      <td></td>
+                      <td>{player.meta.back}</td>
+                      <td>{player.meta.total}</td>
                     </tr>)
 
                   })}

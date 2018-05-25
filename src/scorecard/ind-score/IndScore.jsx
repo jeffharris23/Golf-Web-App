@@ -32,9 +32,11 @@ export default class IndScore extends React.Component {
 
     render() {
         return (
-            <span className={this.getClass()}>
+            <div className={this.getClass()}>
                 {this.props.score}
-            </span>
+            </div>
         )
     }
 }
+
+

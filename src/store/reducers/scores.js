@@ -125,13 +125,42 @@ const initialState = {
   ],
 
 };
+
+//helper function to get user f9, b9, 18 totals
+function updateTotals(scores) {
+    let temp  = {
+        front: 0,
+        back: 0,
+        total: 0
+    };
+
+    let count = 1;
+    for (var key in scores) {
+
+        if(count < 10) {
+            temp.front += scores[key];
+        } else {
+            temp.back += scores[key];
+        }
+        count++;
+    }
+
+    temp.total = temp.front + temp.back;
+
+    return temp;
+    
+}
 const scoresReducer = (state = initialState, action) => {
     switch (action.type) {
+        
         case UPDATE_SCORE:
             const temp = [...state.scores];
             temp.map((player,i) => {
                 if(player.id === action.payload.id) {
                     temp[i].holes[action.payload.hole] = action.payload.score;
+                    //we need to update totals too
+                    const total = updateTotals(temp[i].holes);
+                    temp[i].meta = total;
                 }
             })
             return { ...state, scores: temp };

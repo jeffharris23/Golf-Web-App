@@ -9,6 +9,14 @@
   line-height: 30px;
   text-align: center;
   position: relative; }
+  .ind-score .events {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    display: block; }
   .ind-score.birdie {
     border-radius: 50%;
     border: 1px solid #F9C22E; }

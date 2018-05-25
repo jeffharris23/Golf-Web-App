@@ -124,6 +124,10 @@
   th {
     height: $cellHeight - 10;
     line-height: $cellHeight - 10;
+
+    &:hover {
+      cursor:pointer;
+    }
   }
 
   thead {

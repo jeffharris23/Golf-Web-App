@@ -4,6 +4,7 @@ import { updateScore, updateSnips } from '../store/actions/scores';
 import HolePager from './hole-pager/HolePager';
 import Score from './score/Score';
 import Scorecard from '../scorecard/container';
+import './round.css';
 
 
 
@@ -97,7 +98,7 @@ class Round extends React.Component {
             snipsChange={this.snipsChange}
           />
         </div>
-        <Scorecard header />
+        <Scorecard header history={this.props.history}/>
 
       </section>
     );

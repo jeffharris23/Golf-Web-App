@@ -93,6 +93,8 @@
 .scorecard-wrap th {
   height: 40px;
   line-height: 40px; }
+  .scorecard-wrap th:hover {
+    cursor: pointer; }
 
 .scorecard-wrap thead {
   border-collapse: collapse;
