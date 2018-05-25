@@ -6,7 +6,7 @@
   }
 
   .header {
-    padding: 5px 10px;
+    padding: 5px 0;
     background-color: $grey-1;
     color: #fff;
   }
@@ -35,11 +35,74 @@
     max-width: 50px;
   }
 
+  $widthHeader: 70px;
+
+  .outer-table-wrap {
+    position: relative;
+    padding-left: $widthHeader;
+  }
+
+  $cellHeight: 50px;
+
+  .fixed-labels {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $widthHeader;
+    box-shadow: 1px 0 2px rgba(black, 0.2);
+
+    li {
+      line-height: $cellHeight;
+      height: $cellHeight;
+      font-size: 13px;
+      text-align: center;
+
+      &:first-child, &:nth-of-type(2) {
+        line-height: $cellHeight - 10;
+        height: $cellHeight - 10;
+      }
+
+      &:nth-of-type(even) {
+        background-color:$grey-1;
+      }
+
+
+      &:first-child {
+        background-color: $grey-3;
+        color: #fff;
+        font-weight: bold;
+      }
+
+      &:nth-of-type(2) {
+        background-color: $secondary;
+      }
+
+      &.player-label {
+        position: relative;
+
+        .snips {
+          font-size:7px;
+          color:#fff;
+          display: inline-block;
+          width:15px;
+          height:15px;
+          line-height:15px;
+          border-radius: 50%;
+          background-color:$third;
+          position: absolute;
+          top:3px;
+          right:3px;
+        }
+      }
+    }
+  }
+
   .table-wrap {
     overflow-x: auto;
   }
   table {
     width: 1000px;
+    border-collapse: collapse;
   }
 
   tr {
@@ -47,9 +110,46 @@
     td:last-child {
       border-right: none;
     }
+  }
 
-    td:first-child {
-      text-align: left;
+  th,
+  td {
+    padding: 0 5px;
+    height: $cellHeight;
+    line-height: $cellHeight;
+    font-size: 13px;
+    border-radius: 0;
+  }
+
+  th {
+    height: $cellHeight - 10;
+    line-height: $cellHeight - 10;
+  }
+
+  thead {
+    border-collapse: collapse;
+    border:none;
+  }
+  tbody {
+    border-collapse: collapse;
+    tr {
+
+    
+      &:nth-of-type(odd) {
+        td {
+          background-color: $grey-1;
+          border-right: 1px solid $grey-1 - 20;
+        }
+      }
+
+      &.hdcp {
+        td {
+          height: $cellHeight - 10;
+          line-height: $cellHeight - 10;
+          background-color: $secondary;
+          border-right: 1px solid $secondary - 30;
+        }
+      }
     }
   }
 
@@ -57,27 +157,15 @@
     box-sizing: border-box;
     width: 4%;
     border-radius: 0;
-    border-right: 1px solid $grey-1;
     color: #fff;
     background-color: $grey-3;
     text-align: center;
-    padding: 10px 5px;
-  }
-  
-  tr {
-      border-bottom:1px solid $grey-1;
-
-      &.hdcp {
-          td {
-              padding:7px 5px;
-          }
-      }
+    border-right: 1px solid $grey-3 + 40;
   }
 
   td {
     border-right: 1px solid $grey-1;
     text-align: center;
-    padding: 3px 5px;
   }
 
   .size-1 {

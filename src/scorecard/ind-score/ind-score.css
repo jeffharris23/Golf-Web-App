@@ -1,0 +1,35 @@
+/* =============================================================================
+   Main Site Variables
+   ========================================================================== */
+/* Site Vars */
+.ind-score {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  line-height: 30px;
+  text-align: center;
+  position: relative; }
+  .ind-score.birdie {
+    border-radius: 50%;
+    border: 1px solid #F9C22E; }
+  .ind-score.eagle:before {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: 50%;
+    left: 50%;
+    border: 1px solid #F22B29;
+    transform: translate(-50%, -50%) rotate(45deg); }
+  .ind-score.double-bogey {
+    border: 1px solid #c4c4c4; }
+  .ind-score.poop:before {
+    content: "";
+    background: url("/images/icons/poop.svg") center center no-repeat;
+    display: block;
+    background-size: 100% auto;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: -7px;
+    right: -4px; }

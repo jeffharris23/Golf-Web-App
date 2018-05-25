@@ -4,6 +4,7 @@ import { updateScore, updateSnips } from '../store/actions/scores';
 import { Row, Col, Table } from 'react-materialize';
 import Avatar from '../components/avatar/Avatar';
 import './scorecard.css';
+import IndScore from './ind-score/IndScore';
 
 
 
@@ -34,16 +35,17 @@ renderHdcp = (key,index) => {
 }
 
 renderScore = (player,key,index) => {
+
   // just standard if statement
   if (index === 8) {
       return [
-        <td key={index}>{player.holes[key]}</td>,
+        <td key={index}><IndScore score={player.holes[key]} par={this.props.selectedCourse.holes[key].par}/></td>,
         <td key="out"></td>,
         <td key="init"></td>
       ];
   }
   return (
-    <td key={index}>{player.holes[key]}</td>
+    <td key={index}><IndScore score={player.holes[key]} par={this.props.selectedCourse.holes[key].par}/></td>
   );
 }
   render() {
@@ -61,7 +63,6 @@ renderScore = (player,key,index) => {
                   </Col>
                   <Col s={8} m={9}>
                     <div className="desc-wrap">
-                      <p className="title">Scorecard</p>
                     </div>
                   </Col>
                 </Row>
@@ -69,58 +70,70 @@ renderScore = (player,key,index) => {
             )
           } 
           
-          <div className="table-wrap">
-          <Table>
-            <thead>
-              <tr>
-                <th data-field="hole" className="size-1">Hole</th>
-                <th data-field="1">1</th>
-                <th data-field="2">2</th>
-                <th data-field="3">3</th>
-                <th data-field="4">4</th>
-                <th data-field="5">5</th>
-                <th data-field="6">6</th>
-                <th data-field="7">7</th>
-                <th data-field="8">8</th>
-                <th data-field="9">9</th>
-                <th data-field="out" className="size-2">Out</th>
-                <th data-field="init" className="size-2">Init</th>
-                <th data-field="10">10</th>
-                <th data-field="11">11</th>
-                <th data-field="12">12</th>
-                <th data-field="13">13</th>
-                <th data-field="14">14</th>
-                <th data-field="15">15</th>
-                <th data-field="16">16</th>
-                <th data-field="17">17</th>
-                <th data-field="18">18</th>                
-                <th data-field="in" className="size-2">In</th>                
-                <th data-field="tot" className="size-2">Tot</th>                
-              </tr>
-            </thead>
+          <div className="outer-table-wrap">
+            <div className="fixed-labels">
+              <ul>
+                <li className="header-label">Hole</li>
+                <li>HDCP</li>
+                {this.props.scores.map((player, index) => (
+                  <li className="player-label" key={player.id}>
+                    <Avatar label={player.id} classWrap="small"/>
+                    <span className="snips">{player.snips}</span>
+                  </li>
+                ))}
 
-            <tbody>
-              <tr className="hdcp">
-                <td>HDCP</td>
-        
-                {Object.keys(this.props.selectedCourse.holes).map((key, index) => this.renderHdcp(key,index))}
-                <td></td>
-                <td></td>
-              </tr>
-              {this.props.scores.map((player, index) => {
-                const currentPlayer = player; 
-                return (
-                <tr className="player" key={player.id}>
-                  <td key="name"><Avatar label={player.id} classWrap="small"/></td>
-                  {Object.keys(player.holes).map((key, index) => this.renderScore(currentPlayer,key,index))}
-                  <td></td>
-                  <td></td>
-                </tr>)
+              </ul>
+            </div> 
+            <div className="table-wrap">
 
-              })}
-          
-            </tbody>
-          </Table>
+              <Table>
+                <thead>
+                  <tr>
+                    <th data-field="1">1</th>
+                    <th data-field="2">2</th>
+                    <th data-field="3">3</th>
+                    <th data-field="4">4</th>
+                    <th data-field="5">5</th>
+                    <th data-field="6">6</th>
+                    <th data-field="7">7</th>
+                    <th data-field="8">8</th>
+                    <th data-field="9">9</th>
+                    <th data-field="out" className="size-2">Out</th>
+                    <th data-field="init" className="size-2">Init</th>
+                    <th data-field="10">10</th>
+                    <th data-field="11">11</th>
+                    <th data-field="12">12</th>
+                    <th data-field="13">13</th>
+                    <th data-field="14">14</th>
+                    <th data-field="15">15</th>
+                    <th data-field="16">16</th>
+                    <th data-field="17">17</th>
+                    <th data-field="18">18</th>                
+                    <th data-field="in" className="size-2">In</th>                
+                    <th data-field="tot" className="size-2">Tot</th>                
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr className="hdcp">          
+                    {Object.keys(this.props.selectedCourse.holes).map((key, index) => this.renderHdcp(key,index))}
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  {this.props.scores.map((player, index) => {
+                    const currentPlayer = player; 
+                    return (
+                    <tr className="player" key={player.id}>
+                      {Object.keys(player.holes).map((key, index) => this.renderScore(currentPlayer,key,index))}
+                      <td></td>
+                      <td></td>
+                    </tr>)
+
+                  })}
+              
+                </tbody>
+              </Table>
+            </div>
           </div>
         </div>
 

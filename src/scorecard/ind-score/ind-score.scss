@@ -1,0 +1,46 @@
+@import '../../styles/core/variables';
+.ind-score {
+    width:30px;
+    height:30px;
+    display: inline-block;
+    line-height: 30px;
+    text-align: center;
+    position: relative;
+
+    &.birdie {
+        border-radius: 50%;
+        border:1px solid $secondary;
+    }
+
+    &.eagle {
+        &:before {
+            content:"";
+            position: absolute;
+            width:25px;
+            height:25px;
+            top:50%;
+            left:50%;
+            border:1px solid $primary;
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+    }
+
+
+    &.double-bogey {
+        border: 1px solid $grey-1 - 40;
+    }
+
+    &.poop {
+        &:before {
+            content:"";
+            background:url('/images/icons/poop.svg') center center no-repeat;
+            display: block;
+            background-size:100% auto;
+            width:15px;
+            height:15px;
+            position: absolute;
+            top:-7px;
+            right:-4px;
+        }
+    }
+}
