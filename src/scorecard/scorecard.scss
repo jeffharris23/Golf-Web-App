@@ -1,0 +1,98 @@
+@import '../styles/core/variables';
+
+.scorecard-wrap {
+  .row {
+    margin-bottom: 0;
+  }
+
+  .header {
+    padding: 5px 10px;
+    background-color: $grey-1;
+    color: #fff;
+  }
+
+  .title {
+    margin: 2px 0 0;
+    color: $grey-3;
+    font-size: 13px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+    color: $grey-2;
+  }
+
+  .desc-wrap {
+    text-align: right;
+  }
+
+  .logo-wrap {
+    max-width: 50px;
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+  }
+  table {
+    width: 1000px;
+  }
+
+  tr {
+    th:last-child,
+    td:last-child {
+      border-right: none;
+    }
+
+    td:first-child {
+      text-align: left;
+    }
+  }
+
+  th {
+    box-sizing: border-box;
+    width: 4%;
+    border-radius: 0;
+    border-right: 1px solid $grey-1;
+    color: #fff;
+    background-color: $grey-3;
+    text-align: center;
+    padding: 10px 5px;
+  }
+  
+  tr {
+      border-bottom:1px solid $grey-1;
+
+      &.hdcp {
+          td {
+              padding:7px 5px;
+          }
+      }
+  }
+
+  td {
+    border-right: 1px solid $grey-1;
+    text-align: center;
+    padding: 3px 5px;
+  }
+
+  .size-1 {
+    width: 6%;
+    text-align: left;
+  }
+
+  .size-2 {
+    width: 5%;
+  }
+
+  @include mq(tablet) {
+    table {
+      width: 100%;
+    }
+  }
+}
+/* end of .scorecard-wrap */

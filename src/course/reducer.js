@@ -4,25 +4,80 @@ const initialState = {
   selectedCourse: {
       id: 1,
       name: 'Quail',
+      logo: '/images/courses/1.svg',
       holes: {
-        1: 4,
-        2: 5,
-        3: 4,
-        4: 3,
-        5: 4,
-        6: 5,
-        7: 3,
-        8: 4,
-        9: 4,
-        10: 4,
-        11: 3,
-        12: 5,
-        13: 4,
-        14: 4,
-        15: 3,
-        16: 4,
-        17: 5,
-        18: 4,
+        1: {
+          par:4,
+          hdcp: 17,
+        },
+        2: {
+          par:5,
+          hdcp: 9,
+        },
+        3: {
+          par:4,
+          hdcp: 11,
+        },
+        4: {
+          par:3,
+          hdcp: 13,
+        },
+        5: {
+          par:4,
+          hdcp: 15,
+        },
+        6: {
+          par:5,
+          hdcp: 5,
+        },
+        7: {
+          par:3,
+          hdcp: 7,
+        },
+        8: {
+          par:4,
+          hdcp: 1,
+        },
+        9: {
+          par:4,
+          hdcp: 3,
+        },
+        10: {
+          par:4,
+          hdcp: 6,
+        },
+        11: {
+          par:3,
+          hdcp: 18,
+        },
+        12: {
+          par:5,
+          hdcp: 14,
+        },
+        13: {
+          par:4,
+          hdcp: 12,
+        },
+        14: {
+          par:4,
+          hdcp: 8,
+        },
+        15: {
+          par:3,
+          hdcp: 16,
+        },
+        16: {
+          par:4,
+          hdcp: 10,
+        },
+        17: {
+          par:5,
+          hdcp: 2,
+        },
+        18: {
+          par:4,
+          hdcp: 4,
+        },
       },
       meta: {
         front: 36,
@@ -35,25 +90,80 @@ const initialState = {
     {
       id: 1,
       name: 'Quail',
+      logo: '/images/courses/1.svg',
       holes: {
-        1: 4,
-        2: 5,
-        3: 4,
-        4: 3,
-        5: 4,
-        6: 5,
-        7: 3,
-        8: 4,
-        9: 4,
-        10: 4,
-        11: 3,
-        12: 5,
-        13: 4,
-        14: 4,
-        15: 3,
-        16: 4,
-        17: 5,
-        18: 4,
+        1: {
+          par:4,
+          hdcp: 17,
+        },
+        2: {
+          par:5,
+          hdcp: 9,
+        },
+        3: {
+          par:4,
+          hdcp: 11,
+        },
+        4: {
+          par:3,
+          hdcp: 13,
+        },
+        5: {
+          par:4,
+          hdcp: 15,
+        },
+        6: {
+          par:5,
+          hdcp: 5,
+        },
+        7: {
+          par:3,
+          hdcp: 7,
+        },
+        8: {
+          par:4,
+          hdcp: 1,
+        },
+        9: {
+          par:4,
+          hdcp: 3,
+        },
+        10: {
+          par:4,
+          hdcp: 6,
+        },
+        11: {
+          par:3,
+          hdcp: 18,
+        },
+        12: {
+          par:5,
+          hdcp: 14,
+        },
+        13: {
+          par:4,
+          hdcp: 12,
+        },
+        14: {
+          par:4,
+          hdcp: 8,
+        },
+        15: {
+          par:3,
+          hdcp: 16,
+        },
+        16: {
+          par:4,
+          hdcp: 10,
+        },
+        17: {
+          par:5,
+          hdcp: 2,
+        },
+        18: {
+          par:4,
+          hdcp: 4,
+        },
       },
       meta: {
         front: 36,
@@ -65,25 +175,80 @@ const initialState = {
     {
       id: 2,
       name: 'Bear',
+      logo: '/images/courses/2.svg',
       holes: {
-        1: 4,
-        2: 4,
-        3: 4,
-        4: 3,
-        5: 4,
-        6: 3,
-        7: 5,
-        8: 4,
-        9: 5,
-        10: 4,
-        11: 3,
-        12: 4,
-        13: 5,
-        14: 3,
-        15: 4,
-        16: 4,
-        17: 4,
-        18: 5,
+        1: {
+          par:4,
+          hdcp: 11,
+        },
+        2: {
+          par:4,
+          hdcp: 5,
+        },
+        3: {
+          par:4,
+          hdcp: 3,
+        },
+        4: {
+          par:3,
+          hdcp: 13,
+        },
+        5: {
+          par:4,
+          hdcp: 9,
+        },
+        6: {
+          par:3,
+          hdcp: 17,
+        },
+        7: {
+          par:5,
+          hdcp: 1,
+        },
+        8: {
+          par:4,
+          hdcp: 15,
+        },
+        9: {
+          par:5,
+          hdcp: 7,
+        },
+        10: {
+          par:4,
+          hdcp: 2,
+        },
+        11: {
+          par:3,
+          hdcp: 18,
+        },
+        12: {
+          par:4,
+          hdcp: 14,
+        },
+        13: {
+          par:5,
+          hdcp: 10,
+        },
+        14: {
+          par:3,
+          hdcp: 16,
+        },
+        15: {
+          par:5,
+          hdcp: 12,
+        },
+        16: {
+          par:4,
+          hdcp: 6,
+        },
+        17: {
+          par:4,
+          hdcp: 4,
+        },
+        18: {
+          par:5,
+          hdcp: 8,
+        },
       },
       meta: {
         front: 36,

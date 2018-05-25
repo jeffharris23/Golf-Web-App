@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { connect } from 'react-redux'; 
-import { updatePlayers } from '../store/actions/players';
 import { updateScore, updateSnips } from '../store/actions/scores';
 import HolePager from './hole-pager/HolePager';
 import Score from './score/Score';
+import Scorecard from '../scorecard/container';
 
 
 
@@ -36,7 +36,7 @@ class Round extends React.Component {
 
   nextHole = () => {
     //for any scores that weren't touched my need update them with par for the hole
-    const par = this.props.selectedCourse.holes[this.props.match.params.hole];
+    const par = this.props.selectedCourse.holes[this.props.match.params.hole].par;
     const hole = this.props.match.params.hole;
     this.props.scores.map((player,i) => {
       if(player.holes[hole] === null) {
@@ -91,12 +91,13 @@ class Round extends React.Component {
 
           <Score
             hole={this.props.match.params.hole}          
-            par={this.props.selectedCourse.holes[this.props.match.params.hole]}
+            par={this.props.selectedCourse.holes[this.props.match.params.hole].par}
             players={this.props.scores} 
             onScoreChange={this.onScoreChange}  
             snipsChange={this.snipsChange}
           />
         </div>
+        <Scorecard header />
 
       </section>
     );
@@ -105,7 +106,6 @@ class Round extends React.Component {
 
 
 const mapDispatchToProps = {
-  updatePlayers,
   updateScore,
   updateSnips
 };

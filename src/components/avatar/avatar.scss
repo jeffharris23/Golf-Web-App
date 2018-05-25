@@ -9,6 +9,15 @@
     display: inline-block;
     vertical-align: middle;
 
+    &.small {
+        width:30px;
+        height:30px;
+
+        span {
+            font-size:12px;
+        }
+    }
+
     &.light-theme {
         background-color:$grey-1;
 

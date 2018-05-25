@@ -11,6 +11,11 @@
   position: relative;
   display: inline-block;
   vertical-align: middle; }
+  .avatar-wrap.small {
+    width: 30px;
+    height: 30px; }
+    .avatar-wrap.small span {
+      font-size: 12px; }
   .avatar-wrap.light-theme {
     background-color: #ececec; }
     .avatar-wrap.light-theme span {

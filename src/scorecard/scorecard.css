@@ -1,0 +1,77 @@
+/* =============================================================================
+   Main Site Variables
+   ========================================================================== */
+/* Site Vars */
+.scorecard-wrap .row {
+  margin-bottom: 0; }
+
+.scorecard-wrap .header {
+  padding: 5px 10px;
+  background-color: #ececec;
+  color: #fff; }
+
+.scorecard-wrap .title {
+  margin: 2px 0 0;
+  color: #333333;
+  font-size: 13px; }
+
+.scorecard-wrap h1,
+.scorecard-wrap h2,
+.scorecard-wrap h3,
+.scorecard-wrap h4,
+.scorecard-wrap h5,
+.scorecard-wrap h6 {
+  margin: 0;
+  color: #8e8e8e; }
+
+.scorecard-wrap .desc-wrap {
+  text-align: right; }
+
+.scorecard-wrap .logo-wrap {
+  max-width: 50px; }
+
+.scorecard-wrap .table-wrap {
+  overflow-x: auto; }
+
+.scorecard-wrap table {
+  width: 1000px; }
+
+.scorecard-wrap tr th:last-child,
+.scorecard-wrap tr td:last-child {
+  border-right: none; }
+
+.scorecard-wrap tr td:first-child {
+  text-align: left; }
+
+.scorecard-wrap th {
+  box-sizing: border-box;
+  width: 4%;
+  border-radius: 0;
+  border-right: 1px solid #ececec;
+  color: #fff;
+  background-color: #333333;
+  text-align: center;
+  padding: 10px 5px; }
+
+.scorecard-wrap tr {
+  border-bottom: 1px solid #ececec; }
+  .scorecard-wrap tr.hdcp td {
+    padding: 7px 5px; }
+
+.scorecard-wrap td {
+  border-right: 1px solid #ececec;
+  text-align: center;
+  padding: 3px 5px; }
+
+.scorecard-wrap .size-1 {
+  width: 6%;
+  text-align: left; }
+
+.scorecard-wrap .size-2 {
+  width: 5%; }
+
+@media (min-width: 768px) {
+  .scorecard-wrap table {
+    width: 100%; } }
+
+/* end of .scorecard-wrap */
