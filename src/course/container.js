@@ -34,8 +34,7 @@ class Course extends React.Component {
 
     if(e.target.value !== '') {
       disabled = false;
-      course = this.props.courseList.filter(val => val.id == e.target.value);
-      course = course[0];
+      course = this.props.courseList[e.target.value];
 
     }
 
@@ -61,11 +60,11 @@ class Course extends React.Component {
             defaultValue={this.props.selectedCourse.id}
           >
             <option value="">Select a Course</option>
-            {this.props.courseList.map((val, key) => (
+            {Object.keys(this.props.courseList).map((key, index) => (
               <option 
-                  value={val.id} 
-                  key={val.id} 
-              >{val.name}</option>
+                  value={this.props.courseList[key].id} 
+                  key={this.props.courseList[key].id} 
+              >{this.props.courseList[key].name}</option>
             ))}              
 
                        

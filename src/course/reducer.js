@@ -86,8 +86,8 @@ const initialState = {
       }  
   },
   
-  courseList: [
-    {
+  courseList: {
+    1: {
       id: 1,
       name: 'Quail',
       logo: '/images/courses/1.svg',
@@ -172,7 +172,7 @@ const initialState = {
       }      
       
     },
-    {
+    2: {
       id: 2,
       name: 'Bear',
       logo: '/images/courses/2.svg',
@@ -256,7 +256,7 @@ const initialState = {
         total: 72,
       }       
     }    
-  ]
+  }
 
 };
 const courseReducer = (state = initialState, action) => {
