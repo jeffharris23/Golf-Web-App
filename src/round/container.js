@@ -4,6 +4,7 @@ import { updateScore, updateSnips } from '../store/actions/scores';
 import HolePager from './hole-pager/HolePager';
 import Score from './score/Score';
 import Scorecard from '../scorecard/container';
+import Matches from '../matches/container';
 import './round.css';
 
 
@@ -83,6 +84,7 @@ class Round extends React.Component {
     return (
       <section className="page less-pad">
         <div className="container center">
+        
           <HolePager
             hole={this.props.match.params.hole}
             valid={this.state.nextValid}
@@ -97,7 +99,10 @@ class Round extends React.Component {
             onScoreChange={this.onScoreChange}  
             snipsChange={this.snipsChange}
           />
+
         </div>
+
+        <Matches />
         <Scorecard header history={this.props.history}/>
 
       </section>

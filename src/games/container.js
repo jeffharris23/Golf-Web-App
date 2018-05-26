@@ -30,7 +30,8 @@ class Games extends React.Component {
   addGame = () => {
     const newGame = {
       first: [],
-      second: []
+      second: [],
+      type: 'match',
     };
 
     const games = [...this.state.games];
