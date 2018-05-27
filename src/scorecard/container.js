@@ -5,6 +5,7 @@ import { Row, Col, Table } from 'react-materialize';
 import Avatar from '../components/avatar/Avatar';
 import './scorecard.css';
 import IndScore from './ind-score/IndScore';
+import { getScoresByArray } from '../store/selectors/scores';
 
 
 
@@ -158,7 +159,7 @@ const mapDispatchToProps = {
 
 function mapStateToProps(state) {
   return { 
-    scores: state.scores.scores,
+    scores: getScoresByArray(state),
     selectedCourse: state.course.selectedCourse,
     
   };

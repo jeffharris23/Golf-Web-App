@@ -5,6 +5,7 @@ import HolePager from './hole-pager/HolePager';
 import Score from './score/Score';
 import Scorecard from '../scorecard/container';
 import Matches from '../matches/container';
+import { getScoresByArray } from '../store/selectors/scores';
 import './round.css';
 
 
@@ -15,6 +16,7 @@ class Round extends React.Component {
     this.state = {
       nextValid: false
     };
+
   }
 
   componentDidMount() {
@@ -118,7 +120,7 @@ const mapDispatchToProps = {
 
 function mapStateToProps(state) {
   return { 
-    scores: state.scores.scores,
+    scores: getScoresByArray(state),
     selectedCourse: state.course.selectedCourse,
     
   };

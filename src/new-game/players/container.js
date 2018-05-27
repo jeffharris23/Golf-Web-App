@@ -4,6 +4,7 @@ import { BackNext } from '../../components/back-next/BackNext';
 import { PlayersSelect } from './component.js';
 import { connect } from 'react-redux'; 
 import { updatePlayers } from '../../store/actions/players';
+import { getPlayersByArray } from '../../store/selectors/players';
 import './players.css';
 
 
@@ -21,17 +22,17 @@ class Players extends React.Component {
   }
 
   
-  convertToArray = obj => {
-    const result = Object.keys(obj).map((key,index) => {
-      return {
-        id: obj[key].id,
-        name: obj[key].name,
-        customInput: obj[key].customInput,
-      };
-    });
+  // convertToArray = obj => {
+  //   const result = Object.keys(obj).map((key,index) => {
+  //     return {
+  //       id: obj[key].id,
+  //       name: obj[key].name,
+  //       customInput: obj[key].customInput,
+  //     };
+  //   });
 
-    return result;
-  } 
+  //   return result;
+  // } 
 
   onSelectChange = (data) => {
 
@@ -101,7 +102,7 @@ class Players extends React.Component {
           <PlayersSelect 
             onSelectChange={this.onSelectChange}
             playerSelection={this.props.playersList}
-            players={this.convertToArray(this.props.players)}
+            players={this.props.players}
           />
         </div>
         <BackNext 
@@ -126,7 +127,7 @@ const mapDispatchToProps = {
 function mapStateToProps(state) {
   return { 
     playersList: state.players.playersList,
-    players: state.players.players 
+    players: getPlayersByArray(state)
     
   
   };
