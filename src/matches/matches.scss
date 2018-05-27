@@ -4,4 +4,10 @@
 
 .matches-wrap {
     background-color:$off-white;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    .scroll-wrap {
+        white-space: nowrap;
+    }
 }

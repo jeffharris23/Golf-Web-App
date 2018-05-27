@@ -1,0 +1,32 @@
+@import '../../../styles/core/variables';
+.games-status {
+    .score-section {
+        padding:5px 0;
+
+        
+    }
+
+    .scores {
+        padding-left:5px;
+        white-space:normal;
+        max-width:200px;
+    }        
+
+    .label, .scores {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .label {
+        padding-top:4px;
+    }
+
+    .score {
+        display: inline-block;
+        margin:0 2px;
+        text-align: center;
+        width:15px;
+        font-size:11px;
+    }
+
+}

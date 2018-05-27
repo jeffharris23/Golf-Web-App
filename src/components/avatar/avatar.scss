@@ -9,6 +9,8 @@
     display: inline-block;
     vertical-align: middle;
 
+
+
     &.small {
         width:30px;
         height:30px;
@@ -39,4 +41,40 @@
         left:50%;
         transform:translate(-50%,-50%);
     }
+
+    &.jh {
+        background-color:#ca6a36;
+    }
+
+    &.jg {
+        background-color:#9cc156;
+    }    
+
+    &.sj {
+        background-color:#31667a;
+    }    
+    
+    &.rk {
+        background-color:#74548c;
+    }     
+
+    &.ar {
+        background-color:#bb1a29;
+    }     
+    
+    &.bc {
+        background-color:#cbb654;
+    }    
+    
+    &.sc {
+        background-color:#44612e;
+    }    
+
+    &.wp {
+        background-color:#943574;
+    }   
+    
+    &.ak {
+        background-color:#359194;
+    }     
 }

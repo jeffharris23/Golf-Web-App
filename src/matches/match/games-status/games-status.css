@@ -1,0 +1,25 @@
+/* =============================================================================
+   Main Site Variables
+   ========================================================================== */
+/* Site Vars */
+.games-status .score-section {
+  padding: 5px 0; }
+
+.games-status .scores {
+  padding-left: 5px;
+  white-space: normal;
+  max-width: 200px; }
+
+.games-status .label, .games-status .scores {
+  display: inline-block;
+  vertical-align: top; }
+
+.games-status .label {
+  padding-top: 4px; }
+
+.games-status .score {
+  display: inline-block;
+  margin: 0 2px;
+  text-align: center;
+  width: 15px;
+  font-size: 11px; }

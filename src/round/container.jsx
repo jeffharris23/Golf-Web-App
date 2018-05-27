@@ -88,14 +88,14 @@ class Round extends React.Component {
         <div className="container center">
         
           <HolePager
-            hole={this.props.match.params.hole}
+            hole={parseFloat(this.props.match.params.hole)}
             valid={this.state.nextValid}
             prevClick={this.prevHole}
             nextClick={this.nextHole}
           />
 
           <Score
-            hole={this.props.match.params.hole}          
+            hole={parseFloat(this.props.match.params.hole)}          
             par={this.props.selectedCourse.holes[this.props.match.params.hole].par}
             players={this.props.scores} 
             onScoreChange={this.onScoreChange}  
@@ -104,8 +104,13 @@ class Round extends React.Component {
 
         </div>
 
-        <Matches />
-        <Scorecard header history={this.props.history}/>
+        <Matches 
+          hole={parseFloat(this.props.match.params.hole)}
+        />
+        <Scorecard 
+          header 
+          history={this.props.history}
+        />
 
       </section>
     );

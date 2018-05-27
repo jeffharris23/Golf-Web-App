@@ -3,4 +3,8 @@
    ========================================================================== */
 /* Site Vars */
 .matches-wrap {
-  background-color: #f8f8f8; }
+  background-color: #f8f8f8;
+  overflow-x: auto;
+  overflow-y: hidden; }
+  .matches-wrap .scroll-wrap {
+    white-space: nowrap; }

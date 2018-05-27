@@ -8,6 +8,7 @@ import courseReducer from '../course/reducer';
 import playersReducer from './reducers/players';
 import scoresReducer from './reducers/scores';
 import roundReducer from '../round/reducer';
+import matchesReducer from '../matches/reducer';
 
 
 const middleware = routerMiddleware(history)
@@ -21,6 +22,7 @@ const reducers = combineReducers({
     course: courseReducer,
     round: roundReducer,
     scores: scoresReducer,
+    matches: matchesReducer
 })
 
 const store = createStore(reducers, composeWithDevTools(

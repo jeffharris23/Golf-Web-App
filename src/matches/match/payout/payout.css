@@ -1,0 +1,14 @@
+/* =============================================================================
+   Main Site Variables
+   ========================================================================== */
+/* Site Vars */
+.payout {
+  padding: 5px;
+  border-radius: 3px;
+  background-color: #53B3CB;
+  font-size: 11px;
+  line-height: 14px; }
+  .payout.positive {
+    background-color: rgba(179, 255, 133, 0.4); }
+  .payout.negative {
+    background-color: #e00000; }

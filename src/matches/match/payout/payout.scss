@@ -1,0 +1,16 @@
+@import '../../../styles/core/variables';
+.payout {
+    padding:5px;
+    border-radius:3px;
+    background-color:$third;
+    font-size:11px;
+    line-height:14px;
+
+    &.positive {
+        background-color:rgba($success, 0.4);
+    }
+
+    &.negative {
+        background-color:$error;
+    }
+}

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { updateScore, updateSnips } from '../store/actions/scores';
 import './matches.css';
 import Match from './match/Match';
+import { getMatchesByArray } from './selectors';
 
 
 
@@ -10,8 +11,6 @@ import Match from './match/Match';
 class Matches extends React.Component {
   constructor(props) {
     super(props);
-
-
   }
 
 
@@ -19,8 +18,15 @@ class Matches extends React.Component {
   render() {
     return (
       <section className="matches-wrap">
-
-        <Match />
+        <div className="scroll-wrap">
+          {this.props.matches.map((match, index) => (
+            <Match 
+              key={match.id} 
+              match={match} 
+              hole={this.props.hole}
+            />
+          ))}
+        </div>
       </section>
     );
   }
@@ -34,9 +40,7 @@ const mapDispatchToProps = {
 
 function mapStateToProps(state) {
   return { 
-    scores: state.scores.scores,
-    selectedCourse: state.course.selectedCourse,
-    
+    matches: getMatchesByArray(state),    
   };
 }
 

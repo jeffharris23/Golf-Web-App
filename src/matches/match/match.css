@@ -1,0 +1,33 @@
+/* =============================================================================
+   Main Site Variables
+   ========================================================================== */
+/* Site Vars */
+.match {
+  min-width: 280px;
+  box-sizing: border-box;
+  padding: 15px 25px;
+  display: inline-block; }
+  .match:nth-of-type(even) {
+    background-color: #ececec; }
+  .match .content-wrap {
+    min-height: 150px; }
+  .match .label {
+    font-size: 10px;
+    font-weight: bold; }
+  .match .players-wrap {
+    padding-bottom: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center; }
+    .match .players-wrap .first,
+    .match .players-wrap .second,
+    .match .players-wrap .label {
+      flex: 0 1 auto; }
+    .match .players-wrap .second {
+      margin-right: 50px; }
+    .match .players-wrap .amount-progress {
+      margin-left: auto; }
+    .match .players-wrap .label {
+      margin: 0 5px; }
+    .match .players-wrap .avatar-wrap {
+      margin: 0 2px 0 0; }

@@ -1,0 +1,48 @@
+@import '../../styles/core/variables';
+.match {
+  min-width: 280px;
+  box-sizing: border-box;
+  padding: 15px 25px;
+  display: inline-block;
+
+  &:nth-of-type(even) {
+    background-color: $grey-1;
+  }
+
+  .content-wrap {
+    min-height: 150px;
+  }
+
+  .label {
+    font-size: 10px;
+    font-weight: bold;
+  }
+
+  .players-wrap {
+    padding-bottom: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    .first,
+    .second,
+    .label {
+      flex: 0 1 auto;
+    }
+
+    .second {
+      margin-right: 50px;
+    }
+
+    .amount-progress {
+      margin-left: auto;
+    }
+
+    .label {
+      margin: 0 5px;
+    }
+
+    .avatar-wrap {
+      margin: 0 2px 0 0;
+    }
+  }
+}
