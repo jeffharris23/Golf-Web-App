@@ -48,8 +48,6 @@ class Players extends React.Component {
           return p;
         }
 
-        console.log(usedIds);
-
         let id = this.generateId(p.id);
         let temp = {...p};
 

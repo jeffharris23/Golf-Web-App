@@ -174,8 +174,7 @@ const mapDispatchToProps = {
 function mapStateToProps(state) {
   return {
     games: state.games.games,
-    playersList: state.players.playersList,
-    players: state.players.players.map(val => val.id)
+    players: Object.keys(state.players.players).map(key => state.players.players[key].id)
   };
 }
 
