@@ -7,6 +7,7 @@ import { updatePlayers } from '../../store/actions/players';
 import './players.css';
 
 
+
 class Players extends React.Component {
   constructor(props) {
     super(props);
@@ -16,12 +17,21 @@ class Players extends React.Component {
         disabled: true
       }
     }
-
     
   }
 
   
+  convertToArray = obj => {
+    const result = Object.keys(obj).map((key,index) => {
+      return {
+        id: obj[key].id,
+        name: obj[key].name,
+        customInput: obj[key].customInput,
+      };
+    });
 
+    return result;
+  } 
 
   onSelectChange = (data) => {
 
@@ -34,9 +44,11 @@ class Players extends React.Component {
       temp = temp.map(p => {
         
         if(!p.customInput) { 
-          usedIds.push(p.id);
+          usedIds.push(p.id.toLowerCase());
           return p;
         }
+
+        console.log(usedIds);
 
         let id = this.generateId(p.id);
         let temp = {...p};
@@ -79,7 +91,7 @@ class Players extends React.Component {
     }
     
     
-    return it;
+    return it.toLowerCase();
   }
 
  
@@ -91,7 +103,7 @@ class Players extends React.Component {
           <PlayersSelect 
             onSelectChange={this.onSelectChange}
             playerSelection={this.props.playersList}
-            players={this.props.players}
+            players={this.convertToArray(this.props.players)}
           />
         </div>
         <BackNext 
