@@ -20,20 +20,7 @@ class Players extends React.Component {
     }
     
   }
-
   
-  // convertToArray = obj => {
-  //   const result = Object.keys(obj).map((key,index) => {
-  //     return {
-  //       id: obj[key].id,
-  //       name: obj[key].name,
-  //       customInput: obj[key].customInput,
-  //     };
-  //   });
-
-  //   return result;
-  // } 
-
   onSelectChange = (data) => {
 
     let disabled = true;
