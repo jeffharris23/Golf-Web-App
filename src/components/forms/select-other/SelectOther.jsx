@@ -17,19 +17,21 @@ export class SelectOther extends React.Component {
     
 
     selectChange = (e) => {
-        
         const val = e.target.value;
         const index = e.target.selectedIndex;
         let show = false;
         let value = '';
         let valid = false;
         let label = "";
+        let hdcp = 0;
+       
 
         if(val === 'newplayer') {
             show = true;
         } else {
             value = val;
             label = e.target.options[index].text;
+            hdcp = e.target.options[index].getAttribute('data');
             
             if(value !== '') {
                 valid = true;
@@ -40,7 +42,8 @@ export class SelectOther extends React.Component {
             showInput : show,
             finalValue : value,
             label: label,
-            valid: valid
+            valid: valid,
+            hdcp: hdcp,
         }, this.fireChanges); 
 
     }
@@ -70,6 +73,7 @@ export class SelectOther extends React.Component {
                     <Input s={12} type='select' 
                         onChange={this.selectChange} 
                         defaultValue={ this.props.customInput ? '' : this.props.value } 
+                        
                         id="select"
                     >
                         <option value="">{this.props.selectLabel}</option>
@@ -77,6 +81,7 @@ export class SelectOther extends React.Component {
                             <option 
                                 value={val.id} 
                                 key={val.id} 
+                                data={val.hdcp}
                             >{val.name}</option>
                         ))}  
                         <option value="newplayer">{this.props.selectAddLabel}</option>

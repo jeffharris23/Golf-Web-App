@@ -23,6 +23,8 @@ class Players extends React.Component {
   
   onSelectChange = (data) => {
 
+    
+
     let disabled = true;
   
     if(data.valid) {
@@ -49,6 +51,8 @@ class Players extends React.Component {
         return temp;
 
       });
+
+      // console.log(temp);
 
       this.props.updatePlayers(temp);
       disabled = false;

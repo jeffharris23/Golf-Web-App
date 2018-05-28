@@ -61,6 +61,15 @@ const initialState = {
   ],
 
 };
+
+function formatHdcp(hdcp) {
+
+  if(hdcp === "") {
+    return 0;
+  } 
+  return parseInt(hdcp);
+
+}
 const playersReducer = (state = initialState, action) => {
     switch (action.type) {
         case UPDATE_PLAYERS:
@@ -71,6 +80,7 @@ const playersReducer = (state = initialState, action) => {
               id: player.id,
               name: player.name,
               customInput: player.customInput,
+              hdcp: formatHdcp(player.hdcp)
             };
           })
           return { ...state, players: temp };
@@ -78,14 +88,7 @@ const playersReducer = (state = initialState, action) => {
         case UPDATE_HDCPS:
           let hdcps = {...state};
 
-          let hdcp;
-          if(action.payload.hdcp === "") {
-            hdcp = 0;
-          } else {
-            hdcp = parseInt(action.payload.hdcp);
-          }
-
-          hdcps.players[action.payload.id].hdcp = hdcp;
+          hdcps.players[action.payload.id].hdcp = formatHdcp(action.payload.hdcp);
           return hdcps;          
         default:
           return state;

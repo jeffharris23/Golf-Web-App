@@ -41,11 +41,14 @@ export class PlayersSelect extends React.Component {
 
     onSelectChange = (data) => {
         
+        
         let temp = [...this.state.playerDetails];
+       
         temp[data.index] = {
             id : data.finalValue,
             name: data.label,
-            customInput: data.showInput
+            customInput: data.showInput,
+            hdcp: data.hdcp
         };
 
         this.setState({
