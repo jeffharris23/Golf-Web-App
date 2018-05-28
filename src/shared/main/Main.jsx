@@ -6,6 +6,7 @@ import Players from '../../new-game/players/container';
 import Games from '../../games/container';
 import Round from '../../round/container';
 import Course from '../../course/container';
+import Handicaps from '../../handicaps/container';
 import ConnectedSwitch from './connected-switch';
 
 
@@ -20,6 +21,7 @@ class Main extends React.Component {
             <ConnectedSwitch>
                 <Route exact path='/' component={Home} wrapper="home"/>
                 <Route exact path='/players' component={Players} wrapper="players"/>
+                <Route exact path='/handicaps' component={Handicaps} wrapper="handicaps"/>
                 <Route exact path='/games' component={Games} wrapper="games"/>
                 <Route exact path='/round/:hole' component={Round} wrapper="round"/>
                 <Route exact path='/course' component={Course} wrapper="course"/>

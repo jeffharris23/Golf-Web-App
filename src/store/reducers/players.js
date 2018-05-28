@@ -1,4 +1,4 @@
-import { UPDATE_PLAYERS } from "../actions/players";
+import { UPDATE_PLAYERS, UPDATE_HDCPS } from "../actions/players";
 
 const initialState = {
   players: {
@@ -74,6 +74,19 @@ const playersReducer = (state = initialState, action) => {
             };
           })
           return { ...state, players: temp };
+
+        case UPDATE_HDCPS:
+          let hdcps = {...state};
+
+          let hdcp;
+          if(action.payload.hdcp === "") {
+            hdcp = 0;
+          } else {
+            hdcp = parseInt(action.payload.hdcp);
+          }
+
+          hdcps.players[action.payload.id].hdcp = hdcp;
+          return hdcps;          
         default:
           return state;
     }

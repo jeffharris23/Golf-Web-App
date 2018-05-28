@@ -152,7 +152,7 @@ class Games extends React.Component {
 
         <BackNext
           prev={{
-            url: '/players'
+            url: '/handicaps'
           }}
           next={{
             disabled: this.state.next.disabled,

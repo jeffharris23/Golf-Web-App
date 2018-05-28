@@ -44,6 +44,7 @@ class Players extends React.Component {
         }
 
         temp.id = id;
+        temp.hdcp = 0;
 
         return temp;
 
@@ -97,7 +98,7 @@ class Players extends React.Component {
             url: '/course'
           }}
           next={{
-            url: '/games',
+            url: '/handicaps',
             disabled: this.state.next.disabled,
           }}
         />
