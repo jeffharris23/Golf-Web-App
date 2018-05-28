@@ -37,7 +37,7 @@ export default class Match extends React.Component {
             </div>         
           </div>
           <div className="games-wrap">
-            <GamesStatus hole="6" games={this.props.match.games}/>                 
+            <GamesStatus hole={this.props.hole} games={this.props.match.games}/>                 
           </div>
 
         </div>
