@@ -20,16 +20,16 @@ export default class Match extends React.Component {
         <div className="content-wrap">
           <div className="players-wrap">
             <div className="first">
-              {this.props.match.first.map((id, index) => (
-                <Avatar label={id} key={index} classWrap="small"/>
+              {Object.keys(this.props.match.first).map((key, index) => (
+                <Avatar label={key} key={key} classWrap="small"/>
               ))}
             </div>
             <div className="label">
               VS 
             </div>  
             <div className="second">
-              {this.props.match.second.map((id, index) => (
-                  <Avatar label={id} key={index} classWrap="small"/>
+              {Object.keys(this.props.match.second).map((key, index) => (
+                  <Avatar label={key} key={key} classWrap="small"/>
                 ))}
             </div>    
             <div className="amount-progress">    

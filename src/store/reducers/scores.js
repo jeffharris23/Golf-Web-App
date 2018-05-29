@@ -5,7 +5,6 @@ const initialState = {
     jg: {
       id: 'jg',
       name: 'James Grassie',
-      netHdcp: 0,
       holes: {
         1: 4,
         2: 5,
@@ -37,7 +36,6 @@ const initialState = {
       id: 'jh',
       name: 'Jeff Harris',
       snips: 4,
-      netHdcp: 2,
       holes: {
         1: 5,
         2: 4,
@@ -68,7 +66,6 @@ const initialState = {
       id: 'sj',
       name: 'Scotty Jackson',
       snips: 0,
-      netHdcp: 2,
       holes: {
         1: 3,
         2: 5,
@@ -99,7 +96,6 @@ const initialState = {
       id: 'rk',
       name: 'Ryan Kornelson',
       snips: 0,
-      netHdcp: 6,
       holes: {
         1: 6,
         2: 6,

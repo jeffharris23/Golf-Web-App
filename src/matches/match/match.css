@@ -6,7 +6,8 @@
   min-width: 280px;
   box-sizing: border-box;
   padding: 15px 25px;
-  display: inline-block; }
+  display: inline-block;
+  text-align: left; }
   .match:nth-of-type(even) {
     background-color: #ececec; }
   .match .content-wrap {

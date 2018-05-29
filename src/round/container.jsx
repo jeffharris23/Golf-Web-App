@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux'; 
 import { updateScore, updateSnips } from '../store/actions/scores';
+import { updateProgress } from './actions';
 import HolePager from './hole-pager/HolePager';
 import Score from './score/Score';
 import Scorecard from '../scorecard/container';
@@ -22,15 +23,32 @@ class Round extends React.Component {
   componentDidMount() {
     const { match: { params } } = this.props;
 
-    this.checkValidation()
 
-    if(params.hole > 18 || params.hole < 1){
+    this.checkValidation();
+
+    if(params.hole > 18 || params.hole < 1 || params.hole == undefined){
       this.props.history.push(`/round/1`);
     }
+
+    console.log('New URL 1', params.hole);
+
+    this.props.history.listen(() => {
+      // view new URL
+      console.log('New URL', this.props.match.params);
+    });
     
-
-
   }
+
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   const { match: { params } } = nextProps;
+  //   if(params.hole > 0 && params.hole < 19) {
+  //     // this.props.updateProgress(params.hole);
+  //   } else {
+  //     return false;
+  //   }
+    
+  //   return true;
+  // }  
 
   prevHole = () => {
     const temp = --this.props.match.params.hole;
@@ -120,7 +138,8 @@ class Round extends React.Component {
 
 const mapDispatchToProps = {
   updateScore,
-  updateSnips
+  updateSnips,
+  updateProgress
 };
 
 function mapStateToProps(state) {

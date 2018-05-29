@@ -7,4 +7,5 @@
   overflow-x: auto;
   overflow-y: hidden; }
   .matches-wrap .scroll-wrap {
-    white-space: nowrap; }
+    white-space: nowrap;
+    text-align: center; }

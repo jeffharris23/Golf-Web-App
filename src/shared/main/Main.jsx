@@ -23,7 +23,7 @@ class Main extends React.Component {
                 <Route exact path='/players' component={Players} wrapper="players"/>
                 <Route exact path='/handicaps' component={Handicaps} wrapper="handicaps"/>
                 <Route exact path='/games' component={Games} wrapper="games"/>
-                <Route exact path='/round/:hole' component={Round} wrapper="round"/>
+                <Route exact path='/round/:hole?' component={Round} wrapper="round"/>
                 <Route exact path='/course' component={Course} wrapper="course"/>
                 <Route component={NotFound} wrapper="not-found"/>
             </ConnectedSwitch>      
