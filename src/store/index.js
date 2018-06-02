@@ -1,4 +1,5 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from "./reducers/index";
 import { routerReducer, routerMiddleware } from 'react-router-redux';
@@ -9,6 +10,7 @@ import playersReducer from './reducers/players';
 import scoresReducer from './reducers/scores';
 import roundReducer from '../round/reducer';
 import matchesReducer from '../matches/reducer';
+
 
 
 const middleware = routerMiddleware(history)
@@ -27,6 +29,7 @@ const reducers = combineReducers({
 
 const store = createStore(reducers, composeWithDevTools(
     applyMiddleware(middleware),
+    applyMiddleware(thunk),
 ));
 
 export default store;

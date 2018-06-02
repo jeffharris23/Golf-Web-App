@@ -30,11 +30,12 @@ class Round extends React.Component {
       this.props.history.push(`/round/1`);
     }
 
-    console.log('New URL 1', params.hole);
+
+    this.props.updateProgress(params.hole);
 
     this.props.history.listen(() => {
       // view new URL
-      console.log('New URL', this.props.match.params);
+      this.props.updateProgress(this.props.match.params.hole);
     });
     
   }

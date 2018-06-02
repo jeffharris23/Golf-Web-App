@@ -5,7 +5,7 @@ const initialState = {
       id: null,
       datetime: null,
       completed: false,
-      progress: null
+      progress: 1
   },
 
 
@@ -14,9 +14,13 @@ const roundReducer = (state = initialState, action) => {
     switch (action.type) {
         case UPDATE_ROUND:
           return { ...state, round: action.payload };
-          case UPDATE_PROGRESS:
+        case UPDATE_PROGRESS:
           let progress = {...state};
-          progress.round.progress = parseInt(action.payload.hole);
+
+          const val = parseInt(action.payload);
+          if(val > progress.round.progress) {
+            progress.round.progress = val;
+          }
           return { ...state, progress };          
         default:
           return state;
