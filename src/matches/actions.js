@@ -1,2 +1,4 @@
-export const UPDATE_MATCH = "[Matches] Update Match";
-export const updateMatch = payload => ({ type: UPDATE_MATCH, payload: payload });
+export const UPDATE_MATCHES = "[Matches] Update Matches";
+export const updateMatches = payload => ({ type: UPDATE_MATCHES, payload: payload });
+export const ADD_PRESS = "[Matches] Add Press";
+export const addPress = payload => ({ type: ADD_PRESS, payload: payload });

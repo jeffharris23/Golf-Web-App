@@ -25,5 +25,12 @@ describe("StatusScore component", () => {
         const div = wrapper.find(".score");
         expect(div.text()).toBe("E");
     });     
+
+    it("should show value with plus sign for positive", () => {
+        props.score = 1;
+        const wrapper = shallow(<StatusScore {...props} />);
+        const div = wrapper.find(".score");
+        expect(div.text()).toBe("+1");
+    });       
    
 });

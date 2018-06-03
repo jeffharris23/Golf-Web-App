@@ -23,6 +23,7 @@ export default class Payout extends React.Component {
     }    
 
     return classes;
+
   }
 
   render() {

@@ -15,7 +15,7 @@ describe("Payout component", () => {
         expect(div.length).toBeGreaterThan(0);
     });       
 
-    it("display shows what hole we're on", () => {
+    it("display shows what hole we've finished", () => {
         const wrapper = shallow(<Payout hole={6} amount={15} />);
         const div = wrapper.find(".hole");
         expect(div.text()).toBe("Thru 6: ");

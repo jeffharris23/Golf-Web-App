@@ -24,6 +24,7 @@ class Matches extends React.Component {
               key={match.id} 
               match={match} 
               hole={this.props.hole}
+              progress={this.props.round.progress}
             />
           ))}
         </div>
@@ -41,6 +42,7 @@ const mapDispatchToProps = {
 function mapStateToProps(state) {
   return { 
     matches: getMatchesByArray(state),    
+    round: state.round,
   };
 }
 

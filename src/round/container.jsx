@@ -2,6 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux'; 
 import { updateScore, updateSnips } from '../store/actions/scores';
 import { updateProgress } from './actions';
+import { updateMatches } from '../matches/actions';
 import HolePager from './hole-pager/HolePager';
 import Score from './score/Score';
 import Scorecard from '../scorecard/container';
@@ -70,7 +71,16 @@ class Round extends React.Component {
         });
       }
     });
+
+
     const temp = ++this.props.match.params.hole;
+
+    this.props.updateMatches({
+      progress: this.props.match.params.hole - 1,
+      scores: this.props.keyScores,
+      course: this.props.selectedCourse
+    })
+
     this.props.history.push(`/round/${temp}`);
   }
 
@@ -140,14 +150,15 @@ class Round extends React.Component {
 const mapDispatchToProps = {
   updateScore,
   updateSnips,
-  updateProgress
+  updateProgress,
+  updateMatches
 };
 
 function mapStateToProps(state) {
   return { 
     scores: getScoresByArray(state),
+    keyScores: state.scores.scores,
     selectedCourse: state.course.selectedCourse,
-    
   };
 }
 

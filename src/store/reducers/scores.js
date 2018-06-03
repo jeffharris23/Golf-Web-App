@@ -25,7 +25,7 @@ const initialState = {
         17: null,
         18: null
       },
-      snips: 24,
+      snips: 0,
       meta: {
         front: null,
         back: null,
@@ -35,7 +35,7 @@ const initialState = {
     jh: {
       id: 'jh',
       name: 'Jeff Harris',
-      snips: 4,
+      snips: 0,
       holes: {
         1: 5,
         2: 4,
