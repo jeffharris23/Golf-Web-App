@@ -31,9 +31,10 @@ export default class Match extends React.Component {
             </div>
           </div>
           <div className="games-wrap">
-            {this.props.hole > 1 && (
+            {this.props.progress > 0 && (
               <GamesStatus
                 hole={this.props.hole}
+                progress={this.props.progress}
                 games={this.props.match.games}
               />
             )}

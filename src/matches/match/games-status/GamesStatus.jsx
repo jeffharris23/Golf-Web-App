@@ -24,7 +24,7 @@ export default class GamesStatus extends React.Component {
                 <div className="score-section f9">
                   <div className="label">F9</div>
                   <div className="scores">
-                    {this.props.games.front[this.props.hole-1].map((game,index) => (
+                    {this.props.games.front[this.props.progress].map((game,index) => (
 
                       <StatusScore 
                         key={index} 
@@ -47,7 +47,7 @@ export default class GamesStatus extends React.Component {
                   <div className="label">B9</div>
                   <div className="scores">
                     
-                    {this.props.games.back[this.props.hole-1].map((game,index) => (
+                    {this.props.games.back[this.props.progress].map((game,index) => (
                      <StatusScore 
                       key={index} 
                       score={game.score} 
@@ -67,7 +67,7 @@ export default class GamesStatus extends React.Component {
             <div className="score-section total">
               <div className="label">18</div>
               <div className="scores">
-                  {this.props.games.overall[this.props.hole-1].map((game,index) => (
+                  {this.props.games.overall[this.props.progress].map((game,index) => (
                       <StatusScore 
                         key={index} 
                         score={game.score} 
