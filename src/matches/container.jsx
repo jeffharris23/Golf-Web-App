@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux'; 
 import { updateScore, updateSnips } from '../store/actions/scores';
+import { addPress } from './actions';
 import './matches.css';
 import Match from './match/Match';
 import { getMatchesByArray } from './selectors';
@@ -13,7 +14,14 @@ class Matches extends React.Component {
     super(props);
   }
 
+  addPress = (time,team, matchId) => {
 
+    this.props.addPress({
+      id: matchId,
+      team: team,
+      hole: this.props.hole
+    });
+  }
 
   render() {
     return (
@@ -25,6 +33,7 @@ class Matches extends React.Component {
               match={match} 
               hole={this.props.hole}
               progress={this.props.round.progress}
+              addPress={this.addPress}
             />
           ))}
         </div>
@@ -36,7 +45,8 @@ class Matches extends React.Component {
 
 const mapDispatchToProps = {
   updateScore,
-  updateSnips
+  updateSnips,
+  addPress
 };
 
 function mapStateToProps(state) {

@@ -7,14 +7,16 @@
   box-sizing: border-box;
   padding: 15px 25px;
   display: inline-block;
-  text-align: left; }
+  text-align: left;
+  user-select: none; }
   .match:nth-of-type(even) {
     background-color: #ececec; }
   .match .content-wrap {
     min-height: 150px; }
   .match .label {
     font-size: 10px;
-    font-weight: bold; }
+    font-weight: bold;
+    user-select: none; }
   .match .players-wrap {
     padding-bottom: 5px;
     display: flex;

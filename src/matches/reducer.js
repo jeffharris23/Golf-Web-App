@@ -30,7 +30,11 @@ const initialState = {
                     {
                         id : 0,
                         score: 0,
-                    }
+                    },
+                    {
+                        id : 'jh',
+                        score: 0,
+                    },  
                 ],
                 3: [],
                 4: [],
@@ -191,7 +195,20 @@ const gamesReducer = (state = initialState, action) => {
             return {...state, matches: matches};
 
         case ADD_PRESS:
-            return state;         
+            let matches2 = {...state.matches};
+
+            let side = "front";
+            const hole = action.payload.hole + 1;
+
+            if(action.payload.hole > 8) {
+                side = "back";
+            }
+  
+            matches2[action.payload.id].games[side][hole].push({
+                id : action.payload.team,
+                score: 0,
+            });
+            return {...state, matches: matches2};
         default:
             return state;
     }

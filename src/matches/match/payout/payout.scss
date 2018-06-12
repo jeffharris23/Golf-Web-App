@@ -5,6 +5,7 @@
     background-color:$third;
     font-size:11px;
     line-height:14px;
+    user-select: none;
 
     &.positive {
         background-color:rgba($success, 0.4);
